@@ -11,7 +11,7 @@ cd "$REPO_DIR"
   git diff --cached --quiet && echo "No changes to commit" || git commit -m "Daily backup: $(date -u +%Y-%m-%d)"
   REMOTE_URL="$(git remote get-url origin 2>/dev/null || true)"
   if [ -n "$REMOTE_URL" ]; then
-    git push -u origin master
+    git push -u origin main
     echo "Push completed"
   else
     echo "No remote configured; skipping push"
