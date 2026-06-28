@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>AIHQ Dashboard</title>
+<title>Annabelle — Family Care Assistant</title>
 <style>
   html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", Helvetica, Arial, sans-serif; background:#0f172a; color:#e6e8f0; }
   header { padding:18px; background:#0b1020; border-bottom: 1px solid #1f2b45; display:flex; justify-content:space-between; align-items:center; }
@@ -19,8 +19,8 @@
 </head>
 <body>
 <header>
-  <strong>AIHQ — Mission Control</strong>
-  <span class="muted">auto-refresh: 15s</span>
+  <strong>Annabelle — Family Care Assistant</strong>
+  <span class="muted">always on · 24/7/365</span>
 </header>
 <main>
   <section class="card">
@@ -43,7 +43,7 @@
   <section class="card">
     <h2>Wife Rotation</h2>
     <div class="row"><span>Scheduled tonight</span><span id="rot" class="muted">—</span></div>
-    <div class="row"><span>Order</span><span class="muted">Mo → wife1 → wife2 → wife3 → wife4 → wife5</span></div>
+    <div class="row"><span>Order</span><span class="muted">wife1 → wife2 → wife3 → wife4 → wife5</span></div>
   </section>
 
   <section class="card">
@@ -64,7 +64,7 @@
   <section class="card">
     <h2>Quick actions</h2>
     <div style="display:flex; flex-wrap:wrap; gap:8px;">
-      <a href="/tribe-portal/"><button style="background:#1f2937; color:#e6e8f0; border:1px solid #374151; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px;">Wife portal</button></a>
+      <a href="/tribe-portal/"><button style="background:#1f2937; color:#e6e8f0; border:1px solid #374151; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px;">Tribe portal</button></a>
       <a href="/receipts/" target="_blank"><button style="background:#1f2937; color:#e6e8f0; border:1px solid #374151; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px;">Receipts</button></a>
       <button onclick="refresh()" style="background:#1f2937; color:#e6e8f0; border:1px solid #374151; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px;">Refresh</button>
     </div>
@@ -92,9 +92,9 @@
       text('total', '$' + ((guard.weekly_income_required ?? 0)).toFixed(2))
       text('rot', rot.wife_id ?? '—')
       ['doordash','lyft','instacart','uber','rideshare'].forEach((k,i)=>{
-        const status = svc?.[k] ?? 'unknown'
+        const status = svc?.['mcp']?.[k]?.status ?? svc?.[k]?.status ?? 'unknown'
         const el2 = el('svc_' + k)
-        if(el2){ el2.textContent = status; el2.className = (status === 'ok' ? 'ok' : status === 'warn' ? 'warn' : status === 'blocked' ? 'bad' : 'muted') }
+        if(el2){ el2.textContent = status; el2.className = (status === 'ready' ? 'ok' : status === 'warn' ? 'warn' : status === 'blocked' ? 'bad' : 'muted') }
       })
       text('latest_batch', rev?.latest_batch ?? '—')
       text('revenue', '$' + (Number(rev?.revenue ?? 0)).toFixed(2))
