@@ -1,8 +1,7 @@
 node_modules
-.env
+.next
 tmp
-*.pyc
-__pycache__
-.cache
-.DS_Store
-Thumbs.db
+.env*
+mcps/*
+coordination/
+!.gitignore
