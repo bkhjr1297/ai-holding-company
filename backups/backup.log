@@ -26,3 +26,6 @@ warning: adding embedded git repository: mcps/uber
 error: src refspec master does not match any
 error: failed to push some refs to 'https://github.com/bkhjr1297/ai-holding-company.git'
 === Backup started at 2026-06-28T22:38:32Z ===
+[main 75909b9] Daily backup: 2026-06-28
+ 2 files changed, 28 insertions(+), 1 deletion(-)
+fatal: could not read Username for 'https://github.com': No such device or address

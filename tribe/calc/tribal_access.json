@@ -1,0 +1,21 @@
+{
+  "tribe": {
+    "members": [
+      {"id": "brian", "role": "user", "retirement": true},
+      {"id": "sister", "role": "covered", "retirement": true}
+    ],
+    "ii_tier": {
+      "types": [
+        {"id": "financial", "label": "Financial"},
+        {"id": "retirement", "label": "Retirement"},
+        {"id": "service_request", "label": "Service Request"}
+      ]
+    },
+    "service_requests": {
+      "groceries": {"provider": "instacart", "confirm_required": true, "session_dir": "~/.striderlabs/instacart"},
+      "clothing": {"provider": "amazon", "confirm_required": true, "note": "Blocked: amazon-mcp repo archived/incomplete and requires Fewsats account"},
+      "shelter": {"provider": "zillow", "confirm_required": true, "note": "Blocked: no viable Zillow MCP in this environment"},
+      "rides": {"provider": "doordash_or_lyft_or_uber", "confirm_required": true, "preview_default": true}
+    }
+  }
+}

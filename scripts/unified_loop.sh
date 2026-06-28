@@ -55,5 +55,18 @@ else
     echo "STATUS: PENDING FUNDING — send 0.0001-0.001 ETH on Base to $(mltl wallet show | grep Address | awk '{print $2}')"
 fi
 
+# 7. MCP status
+echo
+echo "[7/7] MCP stack..."
+BASE="${BASE:-/root/ai-holding-company}"
+for m in doordash lyft uber rideshare; do
+  dist="${BASE}/mcps/${m}/dist/index.js"
+  if [ -f "$dist" ]; then
+    echo "[OK] ${m}: ${dist}"
+  else
+    echo "[MISSING] ${m}: no dist/index.js"
+  fi
+done
+
 echo
 echo "=== Loop complete ==="
