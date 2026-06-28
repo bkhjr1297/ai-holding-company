@@ -1,0 +1,33 @@
+{
+  "last_updated": "2026-06-28T00:00:00Z",
+  "quests": [
+    {
+      "id": "research_shadow_ai_policy_inventory_20260627_1653",
+      "name": "Build Shadow AI Policy & Tool Inventory Sprint",
+      "title": "Build Shadow AI Policy & Tool Inventory Sprint",
+      "desc": "Create Shadow AI self-check, tool-inventory CSV, approved/prohibited-use matrix, sensitive-data rules, human-review checklist, and one-page policy skeleton. No scans, no client system access, no legal/security guarantees, no paid tools, and no outreach execution.",
+      "reward": "+190 research XP",
+      "target": 6,
+      "current": 0,
+      "status": "active",
+      "assigned_agent": "Data Privacy Officer",
+      "source": "business_research_agent",
+      "updated_at": "2026-06-28T00:00:00Z",
+      "next_step": "Draft the six local templates; route legal/security decisions to human review."
+    },
+    {
+      "id": "research_ai_governance_template_micro_store_20260627_1653",
+      "name": "Package AI Governance Template Micro-Store Assets",
+      "title": "Package AI Governance Template Micro-Store Assets",
+      "desc": "Package Shadow AI/observability templates and listing copy for a future approved digital-product sales channel. Do not open marketplace accounts, payment accounts, ad accounts, or spend money.",
+      "reward": "+120 research XP",
+      "target": 5,
+      "current": 0,
+      "status": "queued",
+      "assigned_agent": "Document Generator",
+      "source": "business_research_agent",
+      "updated_at": "2026-06-28T00:00:00Z",
+      "next_step": "Create local template bundle and listing draft only after service templates are proven."
+    }
+  ]
+}

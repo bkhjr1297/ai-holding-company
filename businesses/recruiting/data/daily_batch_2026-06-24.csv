@@ -1,0 +1,4 @@
+full_name,phone,email,city,state,role,experience_years,notes,status,source
+Candidate One,,,Fort Myers,FL,dispatcher,2,Local FL candidate,new,local_listing_seed
+Candidate Two,,,Cape Coral,FL,customer service,1,Local FL candidate,new,local_listing_seed
+Candidate Three,,,Lakeland,FL,admin,3,Local FL candidate,new,local_listing_seed

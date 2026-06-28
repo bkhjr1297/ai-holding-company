@@ -1,0 +1,4 @@
+lead_type,contact_name,business_name,phone,email,city,state,details,notes,status,source
+roof replacement,Homeowner,Residential lead,,,Cape Coral,FL,"Home in Lee County, FL likely needing roof work",From public contractor research area,new,public_source_seed
+website redesign,Business owner,Local service biz,,,Fort Myers,FL,Florida contractor needing new website,From public records research area,new,public_source_seed
+dispatcher hire,Operations manager,Trucking or field service,,,Lakeland,FL,Company hiring dispatcher in Central FL,Florida labor demand area,new,public_source_seed

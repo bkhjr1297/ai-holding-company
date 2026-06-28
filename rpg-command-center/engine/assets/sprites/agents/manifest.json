@@ -1,0 +1,37 @@
+{
+  "source": "local procedural 40x48 role sprites stored on VPS; no external runtime downloads; expanded with QA/reporter sprites for Agency Agents roster",
+  "served_by": "/assets/sprites/agents/<name>.png via backend_api.py static asset route",
+  "frontend": "/root/ai-holding-company/rpg-command-center/engine/public/frontend_index.html",
+  "sprite_size": [
+    40,
+    48
+  ],
+  "mapping": {
+    "player": "player.png",
+    "support": "support.png",
+    "operations": "operations.png",
+    "research": "research.png",
+    "sales": "sales.png",
+    "finance": "pricing.png",
+    "pricing": "pricing.png",
+    "legal": "legal.png",
+    "executive": "executive.png",
+    "recruiting": "recruiting.png",
+    "builder": "builder.png",
+    "default": "field_worker.png",
+    "qa": "qa.png",
+    "reporter": "reporter.png"
+  },
+  "role_rules": {
+    "Chief of Staff / executive coordinator": "executive.png",
+    "Legal Compliance Checker": "legal.png",
+    "Pricing Analyst / Finance Tracker": "pricing.png",
+    "Recruitment Specialist": "recruiting.png",
+    "Sales Outreach / Offer & Lead Gen": "sales.png",
+    "Reality Checker / Evidence Collector / API Tester": "qa.png",
+    "Analytics Reporter / KPI reporting": "reporter.png",
+    "Frontend Developer / UX Researcher / RPG Builder": "builder.png",
+    "Software Architect / Backend Architect": "operations.png"
+  },
+  "fallback": "If a PNG fails to load, the canvas renderer draws the procedural agent sprite instead."
+}

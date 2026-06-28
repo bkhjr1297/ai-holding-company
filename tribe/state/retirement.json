@@ -1,0 +1,40 @@
+{
+  "accounts": {
+    "brian": {
+      "balance": 0.0,
+      "contributions": 0.0,
+      "gains": 0.0,
+      "investment_profile": "moderate",
+      "allocation": {
+        "bonds": 0.4,
+        "dividend_equities": 0.4,
+        "growth_equities": 0.15,
+        "cash": 0.05
+      },
+      "retirement_age": 65,
+      "status": "active",
+      "opened_at": "2026-06-28T21:49:05.435894+00:00"
+    },
+    "sister": {
+      "balance": 0.0,
+      "contributions": 0.0,
+      "gains": 0.0,
+      "investment_profile": "conservative",
+      "allocation": {
+        "bonds": 0.6,
+        "dividend_equities": 0.3,
+        "cash": 0.1
+      },
+      "retirement_age": 65,
+      "status": "active",
+      "opened_at": "2026-06-28T21:49:05.473779+00:00"
+    }
+  },
+  "total_assets": 0.0,
+  "settings": {
+    "retirement_age": 65,
+    "min_contribution_pct": 0.05,
+    "max_contribution_pct": 0.15,
+    "default_investment_profile": "moderate"
+  }
+}

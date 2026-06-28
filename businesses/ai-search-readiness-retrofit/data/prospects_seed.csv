@@ -1,0 +1,4 @@
+company,website,category,source,status
+Sample HVAC Company,https://example.com,HVAC,seed,ready_for_sample
+Sample Plumbing Company,https://example.org,Plumbing,seed,ready_for_sample
+Sample Roofing Company,https://example.net,Roofing,seed,ready_for_sample

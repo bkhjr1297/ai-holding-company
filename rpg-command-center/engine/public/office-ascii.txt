@@ -1,0 +1,13 @@
++--------------------------------------------------+
+|                 REVENUE RESCUE DESK               |
+|                     Agent Office                  |
++--------------------------------------------------+
+| [A] Agent Barracks  | [Q1] First 5 Calls   IDLE |
+| [T] Outreach Tower | [Q2] First Emails    IDLE |
+| [V] Revenue Vault  | Revenue: $0              |
+| [C] Client Hall    | Clients: 0                |
+| [O] Ops Foundation | Automation: manual        |
++--------------------------------------------------+
+| AGENTS: . . . .                                   |
+| Activity: monitoring backend state                 |
++--------------------------------------------------+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Dashboard — Revenue Rescue Desk</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: #0b1220; color: #e5e7eb; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 20px 48px; }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+  .brand { font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+  .status-pill { background: #0f4c3a; color: #b8f1d6; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 16px; }
+  .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 14px; padding: 16px; }
+  .card h3 { margin: 0 0 6px; font-size: 15px; color: #94a3b8; font-weight: 600; }
+  .value { font-size: 28px; margin: 0; color: #e5e7eb; }
+  .sub { font-size: 13px; color: #64748b; margin-top: 4px; }
+  .log { background: #0b1220; border: 1px solid #1e293b; border-radius: 12px; padding: 14px; margin-top: 20px; height: 220px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: #b0c4de; }
+  .log .line { margin: 4px 0; }
+  footer { margin-top: 32px; color: #64748b; font-size: 13px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">Agent Dashboard</div>
+      <div id="status" class="status-pill">Loading...</div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Businesses</h3>
+        <p id="business-count" class="value">--</p>
+        <div class="sub">Active operations</div>
+      </div>
+      <div class="card">
+        <h3>Agents</h3>
+        <p id="agent-count" class="value">--</p>
+        <div class="sub">Registered workers</div>
+      </div>
+      <div class="card">
+        <h3>Quests</h3>
+        <p id="quest-count" class="value">--</p>
+        <div class="sub">Active missions</div>
+      </div>
+      <div class="card">
+        <h3>Outreach Today</h3>
+        <p id="outreach-sent" class="value">--</p>
+        <div class="sub">Tower sends</div>
+      </div>
+      <div class="card">
+        <h3>Revenue</h3>
+        <p id="revenue" class="value">--</p>
+        <div class="sub">Monthly tracked</div>
+      </div>
+      <div class="card">
+        <h3>Automation</h3>
+        <p id="automation" class="value">--</p>
+        <div class="sub">Ops level</div>
+      </div>
+    </section>
+
+    <section>
+      <h3 style="color:#94a3b8;margin-top:28px;">Agent Activity Log</h3>
+      <div id="log" class="log">Waiting for data from backend...</div>
+    </section>
+
+    <footer>
+      Revenue Rescue Desk · Agent Dashboard
+    </footer>
+  </div>
+
+  <script>
+    const stateEls = {
+      businessCount: document.getElementById('business-count'),
+      agentCount: document.getElementById('agent-count'),
+      questCount: document.getElementById('quest-count'),
+      outreachSent: document.getElementById('outreach-sent'),
+      revenue: document.getElementById('revenue'),
+      automation: document.getElementById('automation'),
+      status: document.getElementById('status'),
+      log: document.getElementById('log')
+    };
+
+    async function load() {
+      try {
+        const res = await fetch('/api/state');
+        if (!res.ok) throw new Error('state failed');
+        const data = await res.json();
+        stateEls.businessCount.textContent = data.businesses ? data.businesses.length : 0;
+        stateEls.agentCount.textContent = data.agents ? data.agents.length : 0;
+        stateEls.questCount.textContent = data.quests ? data.quests.filter(q => q.status === 'active').length : 0;
+        stateEls.outreachSent.textContent = data.buildings && data.buildings.outreach_tower ? data.buildings.outreach_tower.sentToday : '--';
+        stateEls.revenue.textContent = data.buildings && data.buildings.revenue_vault ? '$' + data.buildings.revenue_vault.monthlyRevenue : '--';
+        stateEls.automation.textContent = data.buildings && data.buildings.operations_foundation ? data.buildings.operations_foundation.automationLevel : '--';
+        stateEls.status.textContent = 'Online';
+        appendLog('Dashboard loaded from backend.');
+      } catch (e) {
+        stateEls.status.textContent = 'Offline';
+        appendLog('Failed to load state: ' + e.message);
+      }
+    }
+
+    function appendLog(msg) {
+      const line = document.createElement('div');
+      line.className = 'line';
+      line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
+      stateEls.log.appendChild(line);
+      stateEls.log.scrollTop = stateEls.log.scrollHeight;
+    }
+
+    load();
+    setInterval(load, 3000);
+  </script>
+</body>
+</html>

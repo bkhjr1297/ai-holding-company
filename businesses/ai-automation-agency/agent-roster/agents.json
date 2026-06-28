@@ -1,0 +1,68 @@
+[
+  {
+    "role": "intake_coordinator",
+    "division": "sales",
+    "source_path": "/root/agency-agents/sales/sales-discovery-coach.md",
+    "responsibility": "Qualify inbound interest, map client request to package, collect requirements, assign order ID, and route to delivery team"
+  },
+  {
+    "role": "automation_architect",
+    "division": "engineering",
+    "source_path": "/root/agency-agents/engineering/engineering-ai-engineer.md",
+    "responsibility": "Design automation architecture, choose toolchain, map APIs, define triggers and outputs, and reduce risk of broken automations"
+  },
+  {
+    "role": "integration_builder",
+    "division": "engineering",
+    "source_path": "/root/agency-agents/engineering/engineering-it-service-manager.md",
+    "responsibility": "Build workflows in Zapier/Make/n8n, connect apps, test retries, and document credentials and limits"
+  },
+  {
+    "role": "ai_behaviors_designer",
+    "division": "engineering",
+    "source_path": "/root/agency-agents/engineering/engineering-prompt-engineer.md",
+    "responsibility": "Write and tune prompts, classify intents, set escalation rules, and keep outputs consistent across channels"
+  },
+  {
+    "role": "copywriter",
+    "division": "marketing",
+    "source_path": "/root/agency-agents/marketing/marketing-content-creator.md",
+    "responsibility": "Write and localize customer-facing copy for replies, sequences, confirmations, and notifications"
+  },
+  {
+    "role": "outbound_growth_operator",
+    "division": "marketing",
+    "source_path": "/root/agency-agents/marketing/marketing-growth-hacker.md",
+    "responsibility": "Design lead magnets, acquisition channels, cold outreach sequences, and conversion experiments"
+  },
+  {
+    "role": "campaign_runner",
+    "division": "marketing",
+    "source_path": "/root/agency-agents/marketing/marketing-email-strategist.md",
+    "responsibility": "Build automated campaigns: nurture, re-engagement, onboarding, post-purchase updates"
+  },
+  {
+    "role": "operations_owner",
+    "division": "project-management",
+    "source_path": "/root/agency-agents/project-management/project-manager-senior.md",
+    "responsibility": "Run delivery cadence, milestones, handoffs, risk log, and client reporting"
+  },
+  {
+    "role": "qa_automation_tester",
+    "division": "testing",
+    "source_path": "/root/agency-agents/testing/testing-api-tester.md",
+    "responsibility": "Verify triggers, edge cases, error paths, and confirm automation behavior before delivery"
+  },
+  {
+    "role": "finance_pricing_controller",
+    "division": "finance",
+    "source_path": "/root/agency-agents/finance/finance-bookkeeper-controller.md",
+    "responsibility": "Propose packaging and pricing, estimate resource usage, and guard margin against runaway usage"
+  },
+  {
+    "role": "support_guardian",
+    "division": "support",
+    "source_path": "/root/agency-agents/support/support-support-responder.md",
+    "responsibility": "Maintain reliability alerts, SLA tracking, and issue triage when automation fails"
+  }
+]

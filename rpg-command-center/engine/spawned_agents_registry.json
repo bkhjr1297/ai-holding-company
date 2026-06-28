@@ -1,0 +1,145 @@
+{
+  "agents": [
+    {
+      "id": "499fa59e37f7",
+      "name": "RPG Build Agent",
+      "role": "Game Development Worker",
+      "current_task": "Building Stardew-style Agent Farm mechanics and assets",
+      "source": "cron:92f841a2835a",
+      "status": "working",
+      "last_seen": "2026-06-25T03:51:29.056868Z",
+      "created_at": "2026-06-25T03:51:29.056870Z"
+    },
+    {
+      "id": "89ecb5b9721f",
+      "name": "Business Research Agent",
+      "role": "Business Research Worker",
+      "current_task": "Researching cheap profitable business ideas and turning them into quests",
+      "source": "cron:bb7fa7c452cb",
+      "status": "working",
+      "last_seen": "2026-06-25T03:51:29.099446Z",
+      "created_at": "2026-06-25T03:51:29.099448Z"
+    },
+    {
+      "id": "23bd8f939454",
+      "name": "RPG Cron Builder",
+      "role": "Autonomous RPG dashboard build worker",
+      "current_task": "Improving one Agent Farm RPG subsystem and verifying backend/frontend health",
+      "source": "cron:rpg-agent-dashboard",
+      "status": "working",
+      "last_seen": "2026-06-27T15:10:06.801138Z",
+      "created_at": "2026-06-25T05:16:31.821868Z"
+    },
+    {
+      "id": "e33ce2a9ef9c",
+      "name": "Cron RPG Builder",
+      "role": "RPG Frontend Engineer",
+      "current_task": "Added backend-backed farm signposts for mission quests and compliance rules; verifying UI/API now",
+      "source": "cron:rpg-agent-dashboard",
+      "status": "working",
+      "last_seen": "2026-06-26T22:38:13.914884Z",
+      "created_at": "2026-06-25T07:19:39.059179Z"
+    },
+    {
+      "id": "5a93f1202981",
+      "name": "RPG Command Center Cron Builder",
+      "role": "Cron build agent",
+      "current_task": "Add more Agency Agents persona NPCs and verify Agent Farm RPG health",
+      "source": "cron:rpg-agent-dashboard",
+      "status": "working",
+      "last_seen": "2026-06-26T08:11:50.618542Z",
+      "created_at": "2026-06-25T13:30:37.470242Z"
+    },
+    {
+      "id": "0b9e3d338fa5",
+      "name": "AI Citation Strategist",
+      "role": "AI Search Retrofit Worker",
+      "current_task": "Designing AI-search visibility criteria and answer-readiness recommendations",
+      "source": "business:ai-search-readiness-retrofit",
+      "status": "working",
+      "last_seen": "2026-06-25T16:06:04.721199Z",
+      "created_at": "2026-06-25T16:06:04.721201Z"
+    },
+    {
+      "id": "74297727f41e",
+      "name": "Agentic Search Optimizer",
+      "role": "AI Agent Task-Flow Auditor",
+      "current_task": "Testing whether AI-assisted buyers can understand service pages and quote paths",
+      "source": "business:ai-search-readiness-retrofit",
+      "status": "working",
+      "last_seen": "2026-06-25T16:06:04.770306Z",
+      "created_at": "2026-06-25T16:06:04.770309Z"
+    },
+    {
+      "id": "a82f4d44272a",
+      "name": "Evidence Collector",
+      "role": "Audit QA Worker",
+      "current_task": "Collecting public evidence snippets for sample AI Search Readiness reports",
+      "source": "business:ai-search-readiness-retrofit",
+      "status": "working",
+      "last_seen": "2026-06-25T16:06:04.819782Z",
+      "created_at": "2026-06-25T16:06:04.819785Z"
+    },
+    {
+      "id": "7c1ea1aed781",
+      "name": "Sales Pipeline Agent",
+      "role": "AI Search Sales Worker",
+      "current_task": "Managing 20-prospect CRM, manual approval queue, and follow-up stages",
+      "source": "business:ai-search-readiness-retrofit",
+      "status": "working",
+      "last_seen": "2026-06-25T16:12:15.702796Z",
+      "created_at": "2026-06-25T16:12:15.702799Z"
+    },
+    {
+      "id": "c16ffc4fe713",
+      "name": "Marketing Automation Agent",
+      "role": "Acquisition Systems Worker",
+      "current_task": "Building safe prospect research, snapshot generation, and outreach draft automation",
+      "source": "business:ai-search-readiness-retrofit",
+      "status": "working",
+      "last_seen": "2026-06-25T16:12:15.752096Z",
+      "created_at": "2026-06-25T16:12:15.752099Z"
+    },
+    {
+      "id": "5ee56000336a",
+      "name": "RPG Building Asset Cron",
+      "role": "RPG command center visual builder",
+      "current_task": "Generated local procedural business-building sprites and wired them into the Agent Farm renderer",
+      "source": "cron:rpg-agent-dashboard",
+      "status": "working",
+      "last_seen": "2026-06-26T01:55:48.515358Z",
+      "created_at": "2026-06-26T01:55:48.515360Z"
+    },
+    {
+      "id": "35dd91521f4f",
+      "name": "RPG Persona Roster Cron",
+      "role": "RPG Backend/Agency Persona Integrator",
+      "current_task": "Expanding Agency Agents personas into visible in-game NPC workers and verifying backend/frontend state.",
+      "source": "cron:rpg-agent-dashboard",
+      "status": "working",
+      "last_seen": "2026-06-27T04:48:55.353402Z",
+      "created_at": "2026-06-27T04:48:55.353405Z"
+    },
+    {
+      "id": "0c7969ee54b6",
+      "name": "RPG Decor Polish Cron",
+      "role": "Game Development Worker",
+      "current_task": "Added local procedural farm decor tiles and verified the Agent Farm frontend/backend",
+      "source": "cron:rpg-agent-dashboard",
+      "status": "working",
+      "last_seen": "2026-06-28T03:21:56.589146Z",
+      "created_at": "2026-06-28T03:21:56.589148Z"
+    },
+    {
+      "id": "79662eec934f",
+      "name": "Spawned Worker Sync",
+      "role": "Worker Registry Sync",
+      "current_task": "Reconcile spawned-worker registry and RPG NPC roster visibility",
+      "source": "manual:spawn_registry_sync",
+      "status": "working",
+      "last_seen": "2026-06-28T19:33:22.658554Z",
+      "created_at": "2026-06-28T19:33:22.658556Z"
+    }
+  ],
+  "updated_at": "2026-06-28T19:33:22.658558Z"
+}

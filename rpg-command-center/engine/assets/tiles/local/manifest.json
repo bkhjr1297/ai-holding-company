@@ -1,0 +1,26 @@
+{
+  "source": "local procedural / pre-vetted 32x32 pixel tiles stored on VPS; no external runtime downloads",
+  "served_by": "/assets/tiles/local/<name>.png via backend_api.py static asset route",
+  "frontend": "/root/ai-holding-company/rpg-command-center/engine/public/frontend_index.html",
+  "tile_size": 32,
+  "mapping": {
+    "grass": "grass.png",
+    "path": "path.png",
+    "water": "water.png",
+    "crops": "farm_plot.png",
+    "tree": "tree.png",
+    "flowers_overlay": "flowers.png",
+    "house": "house.png",
+    "barn": "barn.png",
+    "fence": "fence.png",
+    "well": "well.png",
+    "scarecrow": "scarecrow.png",
+    "bridge": "bridge.png",
+    "chest": "chest.png",
+    "road": "road.png",
+    "lamp": "lamp.png",
+    "bench": "bench.png",
+    "notice_box": "notice_box.png"
+  },
+  "fallback": "If a PNG fails to load, the canvas renderer draws the old procedural tile instead."
+}

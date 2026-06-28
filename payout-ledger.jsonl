@@ -1,0 +1,2 @@
+{"timestamp": "2026-06-28T19:56:07.770801+00:00", "event": "config_loaded", "config_file": "/root/ai-holding-company/payout-config.json"}
+{"timestamp": "2026-06-28T19:56:07.770885+00:00", "event": "system_ready", "status": "awaiting_wallet_addresses"}

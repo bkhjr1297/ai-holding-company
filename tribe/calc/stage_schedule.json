@@ -1,0 +1,26 @@
+{
+  "stage": 0,
+  "stage_name": "Single",
+  "members": [
+    "brian",
+    "sister"
+  ],
+  "breakdown": {
+    "brian": {
+      "rent": 750,
+      "needs": 245,
+      "total": 995
+    },
+    "sister": {
+      "rent": 750,
+      "needs": 245,
+      "total": 995
+    }
+  },
+  "total_children": 0,
+  "total_weekly_needs": 1990.0,
+  "buffer_20pct": 398.0,
+  "total_required_weekly": 2388.0,
+  "child_support_50pct_of_income": null,
+  "notes": "Rent paid by tribe fund first. 20% buffer saved."
+}

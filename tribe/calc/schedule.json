@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-06-28T20:28:47.356161+00:00",
+  "weekly_income": 1543.0,
+  "tribe_fund_first": true,
+  "payments": [
+    {
+      "wife_id": "1",
+      "name": "Wife 1",
+      "wallet": "0x",
+      "rent": 700.0,
+      "children": 1,
+      "child_support_total": 257.166667,
+      "child_support_per_child": 257.166667,
+      "personal_buffer": 0.0,
+      "notes": "Rent paid from tribe fund first"
+    },
+    {
+      "wife_id": "2",
+      "name": "Wife 2",
+      "wallet": "0x",
+      "rent": 700.0,
+      "children": 2,
+      "child_support_total": 514.333334,
+      "child_support_per_child": 257.166667,
+      "personal_buffer": 0.0,
+      "notes": "Rent paid from tribe fund first"
+    }
+  ],
+  "summary": {
+    "total_rent_burden": 1400.0,
+    "remaining_after_rent": 143.0,
+    "child_support_pool": 771.5,
+    "brian_keep": 71.5,
+    "tribe_buffer": 71.5
+  }
+}

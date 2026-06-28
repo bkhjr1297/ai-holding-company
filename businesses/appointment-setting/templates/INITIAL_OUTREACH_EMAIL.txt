@@ -1,0 +1,17 @@
+Subject: Quick question about {business_type}
+
+Hi {contact_name},
+
+My name is Brian Hamilton. I work with a small number of {business_type} companies on one specific issue: scheduled appointments from missed calls, quote requests, or web inquiries.
+
+I am not selling anything on this email. I just want to know:
+
+Are you currently able to follow up with every missed call or quote form within 10 minutes during summer hours?
+
+If yes, great. If not, I have one short idea that can help.
+
+No strings either way.
+
+Brian Hamilton
+Client Response Coordinator
+Revenue Rescue Desk

@@ -1,0 +1,7 @@
+POLICY: Unless the user explicitly instructs otherwise:
+- Do NOT launch another business.
+- Do NOT book appointments.
+- Do NOT send emails or messages.
+- Do NOT schedule cron jobs.
+- Do NOT update live business or contact records.
+This task only sets the documented rule and reusable automation rules.

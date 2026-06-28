@@ -1,0 +1,31 @@
+# AI Search Readiness Snapshot
+
+**Business:** Forest Air  
+**Website:** https://www.forestairac.com/  
+**Category:** HVAC  
+**Date:** 2026-06-25
+
+## Executive Summary
+Initial public-page scan scored 23/25. The score is based on visible public page text only.
+
+## Scorecard
+| Area | Score /5 | Evidence | Recommended Fix |
+|---|---:|---|---|
+| Service clarity | 5 | Found terms: service, repair, install, installation, replacement, maintenance, emergency | Maintain and expand this strength with fresh evidence and clearer structure. |
+| Service area clarity | 5 | Found terms: serving, service area, county, city, local | Maintain and expand this strength with fresh evidence and clearer structure. |
+| Trust / proof | 4 | Found terms: review, licensed, years, certified | Maintain and expand this strength with fresh evidence and clearer structure. |
+| FAQ / answer readiness | 4 | Found terms: faq, questions, how much, what is | Maintain and expand this strength with fresh evidence and clearer structure. |
+| Quote/contact task flow | 5 | Found terms: quote, estimate, schedule, contact, call, book, request | Maintain and expand this strength with fresh evidence and clearer structure. |
+
+## Top 5 Fixes
+1. Maintain and expand this strength with fresh evidence and clearer structure.
+2. Maintain and expand this strength with fresh evidence and clearer structure.
+3. Maintain and expand this strength with fresh evidence and clearer structure.
+4. Maintain and expand this strength with fresh evidence and clearer structure.
+5. Maintain and expand this strength with fresh evidence and clearer structure.
+
+## Retainer Fit
+Good fit for monthly monitoring if the business relies on local search, quote requests, reviews/proof, or service-area traffic.
+
+## Disclaimer
+This is a public-website review. It does not guarantee search rankings, AI citations, or platform placement.

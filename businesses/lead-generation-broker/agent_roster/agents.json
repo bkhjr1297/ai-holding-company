@@ -1,0 +1,14 @@
+[
+  {
+    "role": "lead_researcher",
+    "description": "Finds and verifies leads"
+  },
+  {
+    "role": "broker",
+    "description": "Matches leads to buyers"
+  },
+  {
+    "role": "operations",
+    "description": "Tracks delivery and invoicing"
+  }
+]

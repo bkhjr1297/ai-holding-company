@@ -1,0 +1,18 @@
+Subject: Quick question about {business_type} at {company_name}
+
+Hi {contact_name},
+
+My name is Brian Hamilton, and I work with a small number of {business_type} companies to help with {value_statement}.
+
+I noticed {company_name} is active in {city}, and I thought there might be a fit. I am not selling anything in this email — I am simply testing whether one specific issue is relevant to your team.
+
+Do you currently have a short problem to solve around {specific_topic}?
+
+If not, no need to reply at all. If yes, I can send a one-page note on how other {business_type}s are handling it now.
+
+Either way, I appreciate your time.
+
+Brian Hamilton
+Client Response Coordinator
+Revenue Rescue Desk
+{email_signature}

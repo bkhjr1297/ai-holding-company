@@ -1,0 +1,14 @@
+[
+  {
+    "role": "outreach_specialist",
+    "description": "Handles email sequences and call prep"
+  },
+  {
+    "role": "scheduler",
+    "description": "Books and confirms appointments"
+  },
+  {
+    "role": "customer_success",
+    "description": "Onboards and retains clients"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "owner": {
+    "name": "Brian Harmon",
+    "trust_wallet_address": "",
+    "nyc_target_rent_usd_annual": 47000,
+    "nyc_target_rent_usd_monthly": 3917,
+    "nyc_target_rent_usd_weekly": 903
+  },
+  "inflation": {
+    "enabled": true,
+    "source": "US CPI year-over-year",
+    "adjustment_frequency": "monthly",
+    "floor": 0.0,
+    "current_adjustment_pct": 0.0
+  },
+  "child_support": {
+    "enabled": false,
+    "trigger_phrase": "I have children",
+    "mothers_wallet_address": "",
+    "pct_of_eligible_income": 0.5,
+    "pay_out_after_owner_payout": true
+  },
+  "payout_rules": {
+    "min_buffer_weeks": 4,
+    "buffer_as_pct_of_monthly_income": 0.3,
+    "max_owner_payout_pct_of_gross": 0.6
+  }
+}

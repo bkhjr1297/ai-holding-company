@@ -1,0 +1,32 @@
+# Himalaya email config template for Revenue Rescue Desk
+# Copy to ~/.config/himalaya/config.toml and replace placeholders.
+
+[accounts.revenue_rescue]
+email = "response@example.com"
+display-name = "Revenue Rescue Desk"
+default = true
+
+backend.type = "imap"
+backend.host = "imap.example.com"
+backend.port = 993
+backend.encryption.type = "tls"
+backend.login = "response@example.com"
+backend.auth.type = "password"
+# Store password in a secure command, not plain text. Examples:
+# backend.auth.cmd = "pass show revenue-rescue/imap"
+backend.auth.cmd = "printf 'REPLACE_WITH_APP_PASSWORD'"
+
+message.send.backend.type = "smtp"
+message.send.backend.host = "smtp.example.com"
+message.send.backend.port = 587
+message.send.backend.encryption.type = "start-tls"
+message.send.backend.login = "response@example.com"
+message.send.backend.auth.type = "password"
+# message.send.backend.auth.cmd = "pass show revenue-rescue/smtp"
+message.send.backend.auth.cmd = "printf 'REPLACE_WITH_APP_PASSWORD'"
+
+# Gmail usually needs these aliases:
+folder.aliases.inbox = "INBOX"
+folder.aliases.sent = "[Gmail]/Sent Mail"
+folder.aliases.drafts = "[Gmail]/Drafts"
+folder.aliases.trash = "[Gmail]/Trash"

@@ -1,0 +1,2 @@
+order_id,client_id,client_name,created_at,tier,voice,property_type
+RC-2026-0001,acme-realty-e75c61,Acme Realty,2026-06-25T00:56:16.760268+00:00,subscription,luxury,SFR

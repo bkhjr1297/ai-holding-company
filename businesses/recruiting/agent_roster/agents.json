@@ -1,0 +1,14 @@
+[
+  {
+    "role": "sourcer",
+    "description": "Finds candidates"
+  },
+  {
+    "role": "screener",
+    "description": "Qualifies and interviews"
+  },
+  {
+    "role": "client_success",
+    "description": "Manages employer relationships"
+  }
+]

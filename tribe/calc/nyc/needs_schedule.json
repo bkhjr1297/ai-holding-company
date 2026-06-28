@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-06-28T20:31:00.014967+00:00",
+  "location": "NYC",
+  "per_adult_weekly_base": 245,
+  "per_child_weekly_base": 100,
+  "tribemembers": {
+    "brian": {
+      "rent": 750,
+      "per_person": 245,
+      "total": 995
+    },
+    "wives": {
+      "1": {
+        "name": "Wife 1",
+        "rent": 750.0,
+        "per_person_costs": 245,
+        "children": 1,
+        "per_child_weekly": 100,
+        "child_cost_weekly": 100,
+        "total_weekly": 1095.0
+      },
+      "2": {
+        "name": "Wife 2",
+        "rent": 750.0,
+        "per_person_costs": 245,
+        "children": 2,
+        "per_child_weekly": 100,
+        "child_cost_weekly": 200,
+        "total_weekly": 1195.0
+      }
+    },
+    "sister": {
+      "name": "Sister",
+      "rent": 750.0,
+      "per_person_costs": 245,
+      "total_weekly": 995.0
+    },
+    "children": {}
+  },
+  "total_weekly_needs": 4280.0,
+  "recommended_buffer_20pct": 856.0,
+  "total_with_buffer": 5136.0,
+  "child_support_pool_50pct_of_income": null,
+  "surplus_deficit_notes": "Add income to determine surplus/deficit"
+}

@@ -1,0 +1,5 @@
+- [ ] 1: Wife 1 onboarding and bond ritual complete
+- [ ] 2: Wife 2 introduced after phase 1 markers pass
+- [ ] 3: Weekly tribe dinner calendar
+- [ ] 4: Financial tribe fund and co-ed inbox enabled
+- [ ] 5: Conflict system deployed as separate Hermes workflow

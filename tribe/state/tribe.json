@@ -1,0 +1,113 @@
+{
+  "stage": 0,
+  "members": [
+    "brian",
+    "sister"
+  ],
+  "min_reserve_eth": 0.0001,
+  "min_reserve_usdc": 5.0,
+  "weekly_income_required": 2388.0,
+  "buffer_pct": 0.2,
+  "balances": {
+    "cashclaw_eth": 0.0,
+    "agentcash_usdc": 0.0,
+    "pinch_usdc": 0.0
+  },
+  "name": "Urban Federated Tribe",
+  "phase": "1",
+  "lead": "Brian Harmon",
+  "wives": {
+    "1": {
+      "name": "Wife 1",
+      "space": "own apartment",
+      "role": "Foundation Queen",
+      "kids": 0,
+      "status": "active",
+      "savings_seed": false,
+      "rent": 750
+    },
+    "2": {
+      "name": "Wife 2",
+      "space": "pending",
+      "role": "Transition Pillar",
+      "kids": 0,
+      "status": "pending",
+      "savings_seed": false,
+      "rent": 750
+    },
+    "3": {
+      "name": "Wife 3",
+      "space": "not yet added",
+      "role": "Culture Catalyst",
+      "kids": 0,
+      "status": "inactive",
+      "savings_seed": false,
+      "rent": 750
+    },
+    "4": {
+      "name": "Wife 4",
+      "space": "not yet added",
+      "role": "Final Seal",
+      "kids": 0,
+      "status": "inactive",
+      "savings_seed": false,
+      "rent": 750
+    },
+    "5": {
+      "name": "Wife 5",
+      "space": "not yet added",
+      "role": "Expansion Ally",
+      "kids": 0,
+      "status": "inactive",
+      "savings_seed": false,
+      "rent": 750
+    }
+  },
+  "financial": {
+    "pooled_expenses": [
+      "rent",
+      "utilities",
+      "food",
+      "tribe_fund"
+    ],
+    "individual_accounts": true,
+    "tribe_fund_balance": 0,
+    "ssi_base": 943,
+    "side_income_est": 600,
+    "nyc_rent_defaults": {
+      "studio": 600,
+      "1br": 750,
+      "2br": 950,
+      "3br": 1200,
+      "4br": 1400
+    },
+    "per_adult_weekly_base": 245,
+    "per_child_weekly_base": 100,
+    "tribe_buffer_pct": 0.2,
+    "child_support_pct_of_income": 0.5
+  },
+  "sleeping_rotation": [
+    "Wife 1",
+    "Wife 2",
+    "Wife 3",
+    "Wife 4",
+    "Free Night / Spiritual Night"
+  ],
+  "rules": [
+    "Peace First Rule",
+    "Respect Among Wives",
+    "Masculine Chamber Law",
+    "Tribe Hall Conduct",
+    "Financial Honor Code",
+    "Children Security Law",
+    "Emotional Request System",
+    "Leadership Responsibility"
+  ],
+  "last_check": "2026-06-28T21:52:05.387711+00:00",
+  "payout_allowed": false,
+  "payout_block_reason": "ETH below reserve floor: 0.0 < 0.0001",
+  "members_ages": {
+    "brian": 34,
+    "sister": 30
+  }
+}

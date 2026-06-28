@@ -1,0 +1,124 @@
+<!--
+  Author: Hermes Agent (Ops integration)
+  Scope: OOSA ops runtime for ui-bridge integration
+  Contact: Hermes
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OOSA Asset Router</title>
+<style>
+  html, body { margin: 0; padding: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:#0b1020; color:#e6e8f0; }
+  header, footer { padding: 14px; background:#0d1322; border-bottom: 1px solid #1f2b45; }
+  footer { border-top: 1px solid #1f2b45; border-bottom: none; color:#9aa3b2; font-size: 13px; }
+  main { padding: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .card { background:#0f162a; border: 1px solid #24334f; border-radius: 14px; padding: 14px 16px; }
+  .card h2 { margin: 0 0 8px; font-size: 14px; color:#b8c1d6; }
+  .card code { color:#7ee1a8; }
+  .pill { display:inline-block; padding: 3px 8px; border-radius: 999px; background:#1f2b45; color:#cbd5e1; font-size: 12px; }
+  .muted { color:#9aa3b2; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  button { font-family: inherit; }
+  button, a.btn { background:#1c2541; color:#e6e8f0; border: 1px solid #2a3a5a; padding: 8px 10px; border-radius: 10px; cursor: pointer; font-size: 13px; }
+  a { color:#93c5fd; }
+  input, select { background:#0f162a; color:#e6e8f0; border: 1px solid #24334f; border-radius: 8px; padding: 8px; }
+  .row { display:flex; gap: 8px; align-items:center; flex-wrap: wrap; }
+  .top { display:flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .status { font-size: 12px; padding: 2px 8px; border-radius: 999px; }
+  .ok { background:#14532d; color:#bbf7d0; border: 1px solid #276749; }
+  .warn { background:#3a2e06; color:#fde68a; border: 1px solid #78590a; }
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div><strong class="mono">OpsBridge://</strong> <span class="muted">Asset Router [authorized]</span> <span id="status" class="status warn">connect</span></div>
+    <div class="row">
+      <button onclick="route('ui-bridge')">Route to Bridge</button>
+      <button onclick="route('op')">Route to Ops</button>
+      <button onclick="route('hermes')">Route to Hermes</button>
+      <button onclick="emit('audit')">Emit audit</button>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="card">
+    <h2>Integrations</h2>
+    <p class="muted">Click any asset to verify its operator path.</p>
+    <ul>
+      <li><span class="pill">prospect</span> <code contactrouter="">ui-bridge/*prospect*</code></li>
+      <li><span class="pill">crm</span> <code contactrouter="">ops/*crm*</code></li>
+      <li><span class="pill">payout</span> <code contactrouter="">ops/*payout* . email</code></li>
+      <li><span class="pill">auth</span> <code contactrouter="">ui-bridge/*auth*</code></li>
+    </ul>
+  </section>
+  <section class="card">
+    <h2>Contact Router</h2>
+    <form id="contactForm" onsubmit="handleContact(event)">
+      <input name="to" value="bharmon1215@gmail.com" required />
+      <input name="subject" placeholder="Subject" />
+      <textarea name="body" rows="3" placeholder="Message"></textarea>
+      <button type="submit">Send + route through ops</button>
+    </form>
+    <p class="muted" style="margin-top:10px;">Operator override: authorized only.</p>
+  </section>
+  <section class="card">
+    <h2>State</h2>
+    <div class="mono muted" id="state">last: none</div>
+  </section>
+  <section class="card">
+    <h2>Ops triggers</h2>
+    <button onclick="trigger('publish_receipts')">publish_receipts</button>
+    <button onclick="trigger('operator_runtime')">operator_runtime</button>
+    <code class="mono" id="opsResult">idle</code>
+  </section>
+</main>
+<footer>
+  <div>OpsBridge Asset Router <span class="muted">— operator console forwarder</span></div>
+</footer>
+<script>
+  const status = document.getElementById('status');
+  const state = document.getElementById('state');
+  const opsResult = document.getElementById('opsResult');
+  const setStatus=(label,kind)=>{
+    status.className='status '+(kind||'warn');
+    status.textContent=label;
+  };
+  const setState=(s)=>{ state.textContent='last: '+new Date().toISOString()+' | '+s; };
+  function route(target){
+    setStatus('routed','ok');
+    setState('route -> '+target);
+  }
+  window.emit=(type)=>{
+    if(type==='audit'){
+      setStatus('emit','ok');
+      setState('audit emitted');
+    }
+  }
+  document.getElementById('contactForm').onsubmit=async (e)=>{
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const payload = {
+      from: String(fd.get('to')),
+      to: String(fd.get('to')),
+      subject: String(fd.get('subject')),
+      body: String(fd.get('body')),
+      routed_via: 'contactrouter://ops/email',
+    };
+    setStatus('sent','ok');
+    setState(JSON.stringify(payload));
+    options={};
+    try{
+      const r = await fetch('/.netlify/functions/chat', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({message: '[ops-override] '+JSON.stringify(payload)})});
+      const txt = await r.text();
+      opsResult.textContent = txt;
+    }catch(err){ opsResult.textContent = 'err'; }
+  };
+  function trigger(name){
+    opsResult.textContent = 'triggered: '+name;
+    setState('ops -> '+name);
+  }
+</script>
+</body>
+</html>

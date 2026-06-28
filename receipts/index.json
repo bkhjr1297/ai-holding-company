@@ -1,0 +1,19 @@
+{
+  "folders": {
+    "brian": "Weekly payouts to Brian",
+    "mother": "Child support / family payouts",
+    "children": "Direct support for children",
+    "shared": "Shared household expenses",
+    "business-invoices": "Business-to-business invoices",
+    "export": "Google Drive bulk upload exports"
+  },
+  "receipts": [],
+  "rules": {
+    "owner_payout_day": "Monday",
+    "inflation_adjustment": "Monthly COLA linked to US CPI",
+    "child_support_pct": 0.5,
+    "currency": "ETH",
+    "tracking_currency": "USD",
+    "notes": "Local vault active. Google Drive sync pending credentials."
+  }
+}

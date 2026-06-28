@@ -1,0 +1,14 @@
+{
+  "appointment-setting": {
+    "monthly_target": 1000,
+    "months_at_target": 0
+  },
+  "lead-generation-broker": {
+    "monthly_target": 1000,
+    "months_at_target": 0
+  },
+  "recruiting": {
+    "monthly_target": 1000,
+    "months_at_target": 0
+  }
+}

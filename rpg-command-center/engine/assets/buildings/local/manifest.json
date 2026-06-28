@@ -1,0 +1,34 @@
+{
+  "source": "local procedural 224x160 Stardew-style business buildings; no external downloads or image-generation credits",
+  "served_by": "/assets/buildings/local/<file>.png via backend_api.py static asset route",
+  "sprite_size": [
+    224,
+    160
+  ],
+  "mapping": {
+    "agent_barracks": {
+      "file": "agent_barracks.png",
+      "note": "Agent Barracks: worker roster, Agency Agents sync, and spawned-worker visibility."
+    },
+    "revenue_vault": {
+      "file": "revenue_vault.png",
+      "note": "Bank / Model-Cost Building: revenue targets, gold, and model-cost discipline."
+    },
+    "outreach_tower": {
+      "file": "outreach_tower.png",
+      "note": "Outreach Office: compliant lead batch and outreach preparation only; no sending."
+    },
+    "operations_foundation": {
+      "file": "fulfillment_workshop.png",
+      "note": "Fulfillment Workshop: delivery SOPs, QA, and automation handoffs."
+    },
+    "client_hall": {
+      "file": "client_success_hall.png",
+      "note": "Client Success Hall: retention, support, and reporting workflows."
+    },
+    "market": {
+      "file": "market_board.png",
+      "note": "Market Board: business purchase / opportunity board using public/free research."
+    }
+  }
+}

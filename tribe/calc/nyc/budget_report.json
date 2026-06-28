@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-06-28T20:31:08.417969+00:00",
+  "location": "NYC",
+  "weekly_income_current": 1543,
+  "tribe_fund_first": true,
+  "needs": {
+    "per_adult_weekly": 245,
+    "per_child_weekly": 100,
+    "rent_defaults": {
+      "studio": 600,
+      "1br": 750,
+      "2br": 950,
+      "3br": 1200,
+      "4br": 1400
+    }
+  },
+  "note": "Replace wife/sister rent values in state/tribe.json with actual apartment sizes. Run tribe/calc/nyc/needs_solver.py for exact totals."
+}

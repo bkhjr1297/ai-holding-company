@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Revenue Rescue Desk — Command Center</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Revenue Rescue Desk</h1>
+      <div id="resources">
+        <span id="leads">Leads: 0</span>
+        <span id="revenue">Revenue: $0</span>
+      </div>
+    </header>
+    <main>
+      <section id="base">
+        <h2>Your Base</h2>
+        <div class="building" id="building-appointment-setting">Appointment Agency</div>
+        <div class="building" id="building-lead-generation-broker">Lead Broker</div>
+        <div class="building" id="building-recruiting">Recruiting</div>
+      </section>
+      <section id="campaign">
+        <h2>Campaign Map</h2>
+        <button id="run-daily-batch">Run Daily Batch</button>
+      </section>
+      <section id="agents">
+        <h2>Agents</h2>
+        <div id="agent-list"></div>
+      </section>
+    </main>
+    <footer>
+      <p>Backend status: <span id="status">Ready</span></p>
+    </footer>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

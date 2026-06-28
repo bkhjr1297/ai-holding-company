@@ -1,0 +1,18 @@
+[
+  {
+    "role": "intake_specialist",
+    "description": "Captures order form, assigns order ID, creates client folder, routes to production"
+  },
+  {
+    "role": "copy_producer",
+    "description": "Drafts listing descriptions, SMS, Instagram, and email copy against the intake brief"
+  },
+  {
+    "role": "qa_compliance_officer",
+    "description": "Fair Housing check, booster compliance, tone match, deliver or reject to revise"
+  },
+  {
+    "role": "delivery_agent",
+    "description": "Sends final assets to client via agreed channel, archives client folder"
+  }
+]

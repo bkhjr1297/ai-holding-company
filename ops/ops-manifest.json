@@ -1,0 +1,12 @@
+{
+  "receipts_email": {
+    "to": "bharmon1215@gmail.com",
+    "from": "bharmon1215@gmail.com",
+    "subject_prefix": "[Receipt] Weekly payout",
+    "include_ledger": true
+  },
+  "ui_triggers": {
+    "send_all_weekly_transactions": ["publish_receipts"],
+    "update_game_state": ["operator_runtime"]
+  }
+}

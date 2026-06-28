@@ -1,0 +1,35 @@
+{
+  "business": "AI Search Visibility & Agent-Readable Content Retrofit",
+  "agents": [
+    {
+      "name": "AI Citation Strategist",
+      "source": "/root/agency-agents/marketing/marketing-ai-citation-strategist.md",
+      "responsibility": "AI-answer visibility and citation-readiness recommendations"
+    },
+    {
+      "name": "Agentic Search Optimizer",
+      "source": "/root/agency-agents/marketing/marketing-agentic-search-optimizer.md",
+      "responsibility": "Search-agent task-flow and AI-assisted buyer journey review"
+    },
+    {
+      "name": "SEO Specialist",
+      "source": "/root/agency-agents/marketing/marketing-seo-specialist.md",
+      "responsibility": "Technical/content SEO basics and crawlable service clarity"
+    },
+    {
+      "name": "Content Creator",
+      "source": "/root/agency-agents/marketing/marketing-content-creator.md",
+      "responsibility": "Rewrite recommendations and answer capsule drafts"
+    },
+    {
+      "name": "Evidence Collector",
+      "source": "/root/agency-agents/testing/testing-evidence-collector.md",
+      "responsibility": "Public evidence capture and report QA"
+    },
+    {
+      "name": "Offer & Lead Gen Strategist",
+      "source": "/root/agency-agents/sales/sales-offer-lead-gen-strategist.md",
+      "responsibility": "Offer positioning and pipeline assets"
+    }
+  ]
+}

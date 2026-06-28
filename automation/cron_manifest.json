@@ -1,0 +1,32 @@
+[
+  {
+    "name": "appointment-setting-daily-batch",
+    "schedule": "0 8 * * *",
+    "prompt": "Run the daily batch generator for appointment-setting: python3 /root/ai-holding-company/automation/daily_ops/generate_daily_batches.py and then report the lead count.",
+    "deliver": "local"
+  },
+  {
+    "name": "lead-generation-broker-daily-batch",
+    "schedule": "0 8 * * *",
+    "prompt": "Run the daily batch generator for lead-generation-broker: python3 /root/ai-holding-company/automation/daily_ops/generate_daily_batches.py and then report the lead count.",
+    "deliver": "local"
+  },
+  {
+    "name": "recruiting-daily-batch",
+    "schedule": "0 8 * * *",
+    "prompt": "Run the daily batch generator for recruiting: python3 /root/ai-holding-company/automation/daily_ops/generate_daily_batches.py and then report the lead count.",
+    "deliver": "local"
+  },
+  {
+    "name": "daily-revenue-update",
+    "schedule": "0 20 * * *",
+    "prompt": "Run the daily revenue dashboard update: python3 /root/ai-holding-company/automation/daily_ops/update_revenue_dashboard.py and report any revenue recorded today.",
+    "deliver": "local"
+  },
+  {
+    "name": "daily-status-report",
+    "schedule": "0 21 * * *",
+    "prompt": "Generate and save the daily status report: python3 /root/ai-holding-company/automation/daily_ops/daily_status_report.py and save to /root/ai-holding-company/communications/reports/.",
+    "deliver": "local"
+  }
+]

@@ -1,0 +1,429 @@
+{
+  "last_updated": "2026-06-27T16:53:21Z",
+  "revenue": {
+    "mrr": 0,
+    "sources_checked": [
+      "/root/ai-holding-company/rpg-command-center/engine/public/game_state.json",
+      "/root/ai-holding-company/businesses/**/*revenue*"
+    ],
+    "revenue_files_found": [],
+    "evidence": "RPG Revenue Vault monthlyRevenue is 0; 0 business revenue files were found under /root/ai-holding-company/businesses.",
+    "stage_rule": "$0-$500 MRR: zero-cost businesses only; no paid SaaS/tools, no outbound execution"
+  },
+  "scoring_scale": "1-10 where 10 is best. For startup_cost, 10 means lowest cost. For fulfillment_complexity and lead_acquisition_difficulty, 10 means easiest.",
+  "criteria": [
+    "startup_cost",
+    "speed_to_first_revenue",
+    "automation_potential",
+    "margin",
+    "recurring_revenue_potential",
+    "fulfillment_complexity",
+    "lead_acquisition_difficulty",
+    "fit_with_agency_agents"
+  ],
+  "sources": [
+    {
+      "name": "GCS Technologies - AI Security Policy Guide for Small Businesses (2026)",
+      "url": "https://www.gcstechnologies.com/ai-security-policy-guide/",
+      "note": "SMBs often adopted ChatGPT/Copilot/Claude informally before policy, IT approval, vendor review, or visibility; policies should cover approved tools, prohibited data, review, approvals, and incidents."
+    },
+    {
+      "name": "Microsoft Security Blog - Active AI agents, observability, governance, security (2026)",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/02/10/80-of-fortune-500-use-active-ai-agents-observability-governance-and-security-shape-the-new-frontier/",
+      "note": "Microsoft reports 80%+ of Fortune 500 use active AI agents and says agents need observability, governance, least privilege, owner accountability, and service-account-like controls."
+    },
+    {
+      "name": "Miles IT - AEO & GEO Strategy Guide (2026)",
+      "url": "https://www.milesit.com/ai-search-optimization/",
+      "note": "AI search rewards direct answers, structured trustworthy content, citation-worthy proof, and SEO foundations; do not promise rankings or citations."
+    },
+    {
+      "name": "Kittl - 25 Best Digital Products to Sell in 2026",
+      "url": "https://www.kittl.com/blogs/digital-products-to-sell-dsi/",
+      "note": "Digital products have no inventory/shipping, can be created once and sold repeatedly, but require niche focus and quality packaging because the market is crowded."
+    },
+    {
+      "name": "InsightAgent - Best Selling Digital Products on Etsy (2026)",
+      "url": "https://www.insightagent.app/guides/best-selling-digital-products-etsy",
+      "note": "Printable/digital products can reach 85-95% margins; strongest categories include planners, business templates, educational worksheets, and bundles. Marketplace setup/payment remains a later approval step."
+    },
+    {
+      "name": "Installed Agency Agents roster",
+      "url": "/root/agency-agents/integrations/codex/agents",
+      "note": "Local worker personas checked before role assignment; no custom roles required this run."
+    }
+  ],
+  "opportunities": [
+    {
+      "name": "Shadow AI Policy & Tool Inventory Sprint",
+      "scores": {
+        "startup_cost": 10,
+        "speed_to_first_revenue": 10,
+        "automation_potential": 9,
+        "margin": 10,
+        "recurring_revenue_potential": 10,
+        "fulfillment_complexity": 9,
+        "lead_acquisition_difficulty": 10,
+        "fit_with_agency_agents": 10
+      },
+      "fit": "Best $0-MRR beachhead. SMBs are already using AI informally and need practical visibility, allowed/prohibited-use rules, sensitive-data boundaries, and human review before risk becomes an incident.",
+      "icp": "5-50 employee SMBs using ChatGPT, Copilot, Claude, browser agents, embedded AI, or no-code automations without a written AI-use policy or tool inventory.",
+      "offer": "Free 12-question Shadow AI Risk Self-Check; $499-$1,200 AI Policy & Tool Inventory Sprint; $500-$1,500/mo quarterly refresh, staff training, and evidence-log retainer after first sale.",
+      "stack": [
+        "public AI/security guidance",
+        "local Markdown/CSV templates",
+        "manual interview worksheet",
+        "manual review",
+        "no paid SaaS",
+        "no client credentials"
+      ],
+      "workers": [
+        {
+          "role": "Data Privacy Officer",
+          "path": "/root/agency-agents/integrations/codex/agents/data-privacy-officer.toml",
+          "responsibility": "Define sensitive-data categories, retention boundaries, and privacy-safe AI-use questions.",
+          "exists": true
+        },
+        {
+          "role": "Legal Compliance Checker",
+          "path": "/root/agency-agents/integrations/codex/agents/legal-compliance-checker.toml",
+          "responsibility": "Keep wording conservative and route legal decisions to qualified humans.",
+          "exists": true
+        },
+        {
+          "role": "Security Architect",
+          "path": "/root/agency-agents/integrations/codex/agents/security-architect.toml",
+          "responsibility": "Translate Shadow AI risks into practical SMB control checklists.",
+          "exists": true
+        },
+        {
+          "role": "Compliance Auditor",
+          "path": "/root/agency-agents/integrations/codex/agents/compliance-auditor.toml",
+          "responsibility": "Create recurring evidence logs and review checklists.",
+          "exists": true
+        },
+        {
+          "role": "Document Generator",
+          "path": "/root/agency-agents/integrations/codex/agents/document-generator.toml",
+          "responsibility": "Package self-checks, matrices, and owner briefing templates.",
+          "exists": true
+        }
+      ],
+      "next": "Build self-check, tool inventory CSV, approved/prohibited matrix, sensitive-data rules, human-review checklist, and one-page policy skeleton.",
+      "score_total": 78,
+      "score_average": 9.75,
+      "rank": 1
+    },
+    {
+      "name": "AI Agent Observability & Inventory Lite Sprint",
+      "scores": {
+        "startup_cost": 10,
+        "speed_to_first_revenue": 9,
+        "automation_potential": 10,
+        "margin": 10,
+        "recurring_revenue_potential": 10,
+        "fulfillment_complexity": 9,
+        "lead_acquisition_difficulty": 9,
+        "fit_with_agency_agents": 10
+      },
+      "fit": "Best adjacent/fresh offer. As agents/custom GPTs/no-code automations spread, owners need a simple list of what exists, who owns it, what it can access, which actions need approval, and what evidence should be kept.",
+      "icp": "SMBs/agencies experimenting with Copilot agents, custom GPTs, browser agents, n8n/Zapier automations, AI support bots, or no-code agents without owner maps or audit evidence.",
+      "offer": "Free AI Agent Visibility Checklist; $599-$1,500 Observability & Inventory Lite Sprint; $750-$1,750/mo quarterly agent inventory/evidence-log refresh after first sale.",
+      "stack": [
+        "public Microsoft/GCS guidance",
+        "local agent-inventory CSV",
+        "service-account style ownership map",
+        "manual workflow interviews after sale",
+        "no system logins",
+        "no monitoring tools or scans"
+      ],
+      "workers": [
+        {
+          "role": "Automation Governance Architect",
+          "path": "/root/agency-agents/integrations/codex/agents/automation-governance-architect.toml",
+          "responsibility": "Define governance fields, approval gates, and safe operating rules for agent workflows.",
+          "exists": true
+        },
+        {
+          "role": "Agentic Identity & Trust Architect",
+          "path": "/root/agency-agents/integrations/codex/agents/agentic-identity-trust-architect.toml",
+          "responsibility": "Map agent identity, owner, delegated authority, and proof-of-action requirements.",
+          "exists": true
+        },
+        {
+          "role": "Security Architect",
+          "path": "/root/agency-agents/integrations/codex/agents/security-architect.toml",
+          "responsibility": "Apply least-privilege and visibility checks without performing scans.",
+          "exists": true
+        },
+        {
+          "role": "Data Privacy Officer",
+          "path": "/root/agency-agents/integrations/codex/agents/data-privacy-officer.toml",
+          "responsibility": "Map sensitive data boundaries and retention constraints.",
+          "exists": true
+        },
+        {
+          "role": "Analytics Reporter",
+          "path": "/root/agency-agents/integrations/codex/agents/analytics-reporter.toml",
+          "responsibility": "Design a simple inventory/evidence-log dashboard.",
+          "exists": true
+        },
+        {
+          "role": "Document Generator",
+          "path": "/root/agency-agents/integrations/codex/agents/document-generator.toml",
+          "responsibility": "Package the inventory, map, and executive brief.",
+          "exists": true
+        }
+      ],
+      "next": "Draft agent inventory CSV, owner/permission map, data-touch checklist, approval/rollback matrix, evidence-log template, and executive briefing locally.",
+      "score_total": 77,
+      "score_average": 9.62,
+      "rank": 2
+    },
+    {
+      "name": "Customer Support Knowledge-Base & AI Triage Readiness Sprint",
+      "scores": {
+        "startup_cost": 10,
+        "speed_to_first_revenue": 9,
+        "automation_potential": 9,
+        "margin": 9,
+        "recurring_revenue_potential": 9,
+        "fulfillment_complexity": 8,
+        "lead_acquisition_difficulty": 10,
+        "fit_with_agency_agents": 10
+      },
+      "fit": "Strong zero-cost service for businesses that want AI support later but first need FAQ structure, routing, escalation, transparency, training, and measurement.",
+      "icp": "Small SaaS, ecommerce, appointment businesses, clinics, agencies, and local-service teams with repeated questions, inconsistent replies, weak FAQ pages, and no escalation rules.",
+      "offer": "Free Support AI-Readiness Checklist; $399-$899 KB/Triage Sprint; $500-$1,200/mo KB refresh/reporting retainer.",
+      "stack": [
+        "public FAQ/support-page review",
+        "client docs after sale",
+        "local Markdown/CSV templates",
+        "no helpdesk login",
+        "no chatbot claims"
+      ],
+      "workers": [
+        {
+          "role": "Customer Success Manager",
+          "path": "/root/agency-agents/integrations/codex/agents/customer-success-manager.toml",
+          "responsibility": "Define support outcomes, SLA rules, and customer-success reporting.",
+          "exists": true
+        },
+        {
+          "role": "Support Responder",
+          "path": "/root/agency-agents/integrations/codex/agents/support-responder.toml",
+          "responsibility": "Draft canned replies and escalation language.",
+          "exists": true
+        },
+        {
+          "role": "Content Creator",
+          "path": "/root/agency-agents/integrations/codex/agents/content-creator.toml",
+          "responsibility": "Create FAQ and help-center copy.",
+          "exists": true
+        },
+        {
+          "role": "Operations Manager",
+          "path": "/root/agency-agents/integrations/codex/agents/operations-manager.toml",
+          "responsibility": "Build triage workflow and reporting cadence.",
+          "exists": true
+        },
+        {
+          "role": "Evidence Collector",
+          "path": "/root/agency-agents/integrations/codex/agents/evidence-collector.toml",
+          "responsibility": "Collect public support-page gaps.",
+          "exists": true
+        }
+      ],
+      "next": "Create support checklist, top-25 FAQ template, triage tree, escalation policy, canned responses, and weekly report template.",
+      "score_total": 74,
+      "score_average": 9.25,
+      "rank": 3
+    },
+    {
+      "name": "AI Search Visibility & LLM Source-Map Retrofit Snapshot",
+      "scores": {
+        "startup_cost": 10,
+        "speed_to_first_revenue": 8,
+        "automation_potential": 9,
+        "margin": 9,
+        "recurring_revenue_potential": 9,
+        "fulfillment_complexity": 8,
+        "lead_acquisition_difficulty": 9,
+        "fit_with_agency_agents": 10
+      },
+      "fit": "Still viable but now runner-up. AEO/GEO sources show demand for structured direct answers and citation-worthy content, but the offer must avoid ranking/citation guarantees.",
+      "icp": "Local service businesses and small B2B firms with thin service pages, weak FAQs, unclear proof, no source map, and no AI-readable guidance.",
+      "offer": "Free 5-point AI Search Snapshot; $299-$799 retrofit plan; $300-$900/mo refresh/reporting retainer.",
+      "stack": [
+        "public website review",
+        "local templates",
+        "manual scoring",
+        "no paid tools",
+        "no form submissions",
+        "no ranking/citation guarantees"
+      ],
+      "workers": [
+        {
+          "role": "AI Citation Strategist",
+          "path": "/root/agency-agents/integrations/codex/agents/ai-citation-strategist.toml",
+          "responsibility": "Score answerability and source clarity.",
+          "exists": true
+        },
+        {
+          "role": "AEO Foundations Architect",
+          "path": "/root/agency-agents/integrations/codex/agents/aeo-foundations-architect.toml",
+          "responsibility": "Score llms.txt/source-map/crawler guidance readiness.",
+          "exists": true
+        },
+        {
+          "role": "SEO Specialist",
+          "path": "/root/agency-agents/integrations/codex/agents/seo-specialist.toml",
+          "responsibility": "Review crawlability and page hygiene.",
+          "exists": true
+        },
+        {
+          "role": "Content Creator",
+          "path": "/root/agency-agents/integrations/codex/agents/content-creator.toml",
+          "responsibility": "Draft answer capsules and FAQs.",
+          "exists": true
+        },
+        {
+          "role": "Evidence Collector",
+          "path": "/root/agency-agents/integrations/codex/agents/evidence-collector.toml",
+          "responsibility": "Collect public evidence snippets.",
+          "exists": true
+        }
+      ],
+      "next": "Keep producing public-site samples and source-map examples, but prioritize Shadow AI for fastest close.",
+      "score_total": 72,
+      "score_average": 9.0,
+      "rank": 4
+    },
+    {
+      "name": "Employee AI Training & Prompt SOP Workshop",
+      "scores": {
+        "startup_cost": 10,
+        "speed_to_first_revenue": 8,
+        "automation_potential": 8,
+        "margin": 10,
+        "recurring_revenue_potential": 7,
+        "fulfillment_complexity": 9,
+        "lead_acquisition_difficulty": 8,
+        "fit_with_agency_agents": 10
+      },
+      "fit": "Good upsell after governance pain is established. Staff need role-safe prompts, prompt logs, review workflows, and manager scorecards.",
+      "icp": "SMB owners who know staff use AI but need safe repeatable workflows for writing, support, research, proposals, HR/admin, marketing, and operations.",
+      "offer": "Free AI Skills Gap Self-Assessment; $399-$999 Prompt SOP Workshop; $300-$900/mo prompt-library refresh and office-hours retainer.",
+      "stack": [
+        "public free training resources",
+        "local Markdown/PPT/CSV templates",
+        "role-based exercises",
+        "no paid course platform",
+        "no client data collection"
+      ],
+      "workers": [
+        {
+          "role": "Corporate Training Designer",
+          "path": "/root/agency-agents/integrations/codex/agents/corporate-training-designer.toml",
+          "responsibility": "Build workshop agenda and exercises.",
+          "exists": true
+        },
+        {
+          "role": "Prompt Engineer",
+          "path": "/root/agency-agents/integrations/codex/agents/prompt-engineer.toml",
+          "responsibility": "Draft role-safe prompts and testing notes.",
+          "exists": true
+        },
+        {
+          "role": "Automation Governance Architect",
+          "path": "/root/agency-agents/integrations/codex/agents/automation-governance-architect.toml",
+          "responsibility": "Turn prompt use into approval gates and governance SOPs.",
+          "exists": true
+        },
+        {
+          "role": "Data Privacy Officer",
+          "path": "/root/agency-agents/integrations/codex/agents/data-privacy-officer.toml",
+          "responsibility": "Embed sensitive-information guardrails.",
+          "exists": true
+        },
+        {
+          "role": "Document Generator",
+          "path": "/root/agency-agents/integrations/codex/agents/document-generator.toml",
+          "responsibility": "Package deck, handouts, and logs.",
+          "exists": true
+        }
+      ],
+      "next": "Draft one-hour workshop outline, 20 role-safe prompts, prompt review checklist, prompt log, and manager scorecard.",
+      "score_total": 70,
+      "score_average": 8.75,
+      "rank": 5
+    },
+    {
+      "name": "AI Governance Template Micro-Store Assets",
+      "scores": {
+        "startup_cost": 10,
+        "speed_to_first_revenue": 7,
+        "automation_potential": 10,
+        "margin": 10,
+        "recurring_revenue_potential": 6,
+        "fulfillment_complexity": 10,
+        "lead_acquisition_difficulty": 6,
+        "fit_with_agency_agents": 10
+      },
+      "fit": "Useful productized derivative of the service templates. Digital-products research shows high-margin template bundles work, but marketplace/payment setup requires approval; until then, create local assets and listing copy only.",
+      "icp": "Solo consultants, fractional ops leaders, SMB owners, and agencies needing editable AI policy, tool inventory, prompt log, approval matrix, and training templates.",
+      "offer": "Local bundle draft now; future $19-$79 template pack and $199-$499 customization add-on after Brian approves sales channel/payment setup.",
+      "stack": [
+        "local Markdown/DOCX/CSV templates",
+        "free design/export tooling",
+        "no marketplace account",
+        "no payment processor",
+        "no ad spend"
+      ],
+      "workers": [
+        {
+          "role": "Document Generator",
+          "path": "/root/agency-agents/integrations/codex/agents/document-generator.toml",
+          "responsibility": "Package polished templates and export-ready docs.",
+          "exists": true
+        },
+        {
+          "role": "Content Creator",
+          "path": "/root/agency-agents/integrations/codex/agents/content-creator.toml",
+          "responsibility": "Write listing copy and buyer instructions.",
+          "exists": true
+        },
+        {
+          "role": "Legal Compliance Checker",
+          "path": "/root/agency-agents/integrations/codex/agents/legal-compliance-checker.toml",
+          "responsibility": "Add disclaimers and avoid legal-advice claims.",
+          "exists": true
+        },
+        {
+          "role": "Prompt Engineer",
+          "path": "/root/agency-agents/integrations/codex/agents/prompt-engineer.toml",
+          "responsibility": "Build prompt/SOP templates.",
+          "exists": true
+        },
+        {
+          "role": "Pricing Analyst",
+          "path": "/root/agency-agents/integrations/codex/agents/pricing-analyst.toml",
+          "responsibility": "Model bundle pricing and customization upsells.",
+          "exists": true
+        }
+      ],
+      "next": "Package template files and listing draft only; do not open Etsy/Gumroad/Shopify/payment accounts.",
+      "score_total": 69,
+      "score_average": 8.62,
+      "rank": 6
+    }
+  ],
+  "selected_for_current_stage": [
+    "Shadow AI Policy & Tool Inventory Sprint",
+    "AI Agent Observability & Inventory Lite Sprint"
+  ],
+  "fresh_ideas_added_this_run": [
+    "AI Governance Template Micro-Store Assets"
+  ],
+  "safety_boundary": "No emails, calls, form submissions, scans, client-system access, paid tools, marketplace/payment signups, cron scheduling, or spending were performed."
+}
