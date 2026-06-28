@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tribe Portal</title>
+<style>
+  html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif; background:#0f172a; color:#e6e8f0; }
+  header, footer { padding:14px; background:#0b1020; border-bottom:1px solid #1f2b45; }
+  footer { border-top:1px solid #1f2b45; border-bottom:none; color:#9aa3b2; font-size:13px; }
+  main { padding:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+  .card { background:#111827; border:1px solid #253049; border-radius:14px; padding:14px 16px; }
+  .card h2 { margin:0 0 8px; font-size:14px; color:#cbd5e1; }
+  button, .btn { background:#1f2937; color:#e6e8f0; border:1px solid #374151; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px; }
+  textarea, input { background:#0b1220; color:#e6e8f0; border:1px solid #253049; border-radius:8px; padding:8px; width:100%; box-sizing:border-box; }
+  .muted { color:#9aa3b2; }
+  .status { font-size:12px; padding:2px 8px; border-radius:999px; background:#1f2b45; color:#cbd5e1; }
+</style>
+</head>
+<body>
+<header>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+    <div>
+      <strong>Tribe Portal</strong>
+      <span class="status" id="viewStatus">view: direct list</span>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button onclick="cycleView()">Toggle View Mode</button>
+      <button onclick="copyWallet()">Copy Wallet</button>
+      <button onclick="emergencyOverride('wife_hospitalized')">Emergency: wife hospitalized</button>
+      <button onclick="emergencyOverride('child_hospitalized')">Emergency: child hospitalized</button>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="card">
+    <h2>Wife 1</h2>
+    <textarea rows="3"></textarea>
+    <div style="margin-top:8px;display:flex;gap:8px;">
+      <button onclick="hello(1)">Hello World</button>
+      <button onclick="request(1)">Request Funds</button>
+    </div>
+    <p class="muted" style="margin-top:10px;">Status: <span id="s1">saved</span></p>
+  </section>
+  <section class="card">
+    <h2>Wife 2</h2>
+    <textarea rows="3"></textarea>
+    <div style="margin-top:8px;display:flex;gap:8px;">
+      <button onclick="hello(2)">Hello World</button>
+      <button onclick="request(2)">Request Funds</button>
+    </div>
+    <p class="muted" style="margin-top:10px;">Status: <span id="s2">saved</span></p>
+  </section>
+  <section class="card">
+    <h2>Wife 3</h2>
+    <textarea rows="3"></textarea>
+    <div style="margin-top:8px;display:flex;gap:8px;">
+      <button onclick="hello(3)">Hello World</button>
+      <button onclick="request(3)">Request Funds</button>
+    </div>
+    <p class="muted" style="margin-top:10px;">Status: <span id="s3">saved</span></p>
+  </section>
+  <section class="card">
+    <h2>Wife 4</h2>
+    <textarea rows="3"></textarea>
+    <div style="margin-top:8px;display:flex;gap:8px;">
+      <button onclick="hello(4)">Hello World</button>
+      <button onclick="request(4)">Request Funds</button>
+    </div>
+    <p class="muted" style="margin-top:10px;">Status: <span id="s4">saved</span></p>
+  </section>
+  <section class="card">
+    <h2>Wife 5</h2>
+    <textarea rows="3"></textarea>
+    <div style="margin-top:8px;display:flex;gap:8px;">
+      <button onclick="hello(5)">Hello World</button>
+      <button onclick="request(5)">Request Funds</button>
+    </div>
+    <p class="muted" style="margin-top:10px;">Status: <span id="s5">saved</span></p>
+  </section>
+</main>
+<footer>
+  <div>Tribe Portal <span class="muted">— authorization required for payouts</span></div>
+</footer>
+<script>
+  function setStatus(n, msg){ const el = document.getElementById('s'+n); if(el){ el.textContent = msg } }
+  function hello(n){ setStatus(n, 'hello world sent'); }
+  function request(n){ setStatus(n, 'request queued'); }
+  function cycleView(){ document.getElementById('viewStatus').textContent = 'view: ' + (document.getElementById('viewStatus').textContent === 'view: direct list' ? 'backtrace' : 'direct list'); }
+  function copyWallet(){ navigator.clipboard.writeText('0x2Ffe73Fa465f638e57dd57C67886a2315c664203'); alert('Wallet copied'); }
+  async function emergencyOverride(reason){
+    try {
+      const r = await fetch('/api/rotation/emergency', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ reason }) });
+      const data = await r.json();
+      alert('Emergency override: ' + (data.replacement || 'done'));
+    } catch (e) { alert('override failed: ' + (e.message || e)); }
+  }
+</script>
+</body>
+</html>

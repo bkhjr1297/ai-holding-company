@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AIHQ Dashboard</title>
+<style>
+  html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", Helvetica, Arial, sans-serif; background:#0f172a; color:#e6e8f0; }
+  header { padding:18px; background:#0b1020; border-bottom: 1px solid #1f2b45; display:flex; justify-content:space-between; align-items:center; }
+  main { padding:18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card { background:#111827; border: 1px solid #253049; border-radius:16px; padding:14px 16px; }
+  .card h2 { font-size:14px; color:#cbd5e1; margin: 0 0 8px; }
+  .row { display:flex; justify-content:space-between; gap: 10px; margin: 6px 0; font-size:13px; }
+  .muted { color:#9aa3b2; }
+  .ok { color:#86efac; }
+  .warn { color:#fde68a; }
+  .bad { color:#fca5a5; }
+  a { color:#93c5fd; }
+</style>
+</head>
+<body>
+<header>
+  <strong>AIHQ — Mission Control</strong>
+  <span class="muted">auto-refresh: 15s</span>
+</header>
+<main>
+  <section class="card">
+    <h2>Safeguards</h2>
+    <div class="row"><span>Payout allowed</span><span id="payout_allowed" class="muted">—</span></div>
+    <div class="row"><span>Stage</span><span id="stage" class="muted">—</span></div>
+    <div class="row"><span>Weekly required</span><span id="weekly_req" class="muted">—</span></div>
+    <div class="row"><span>Buffer after payout</span><span id="buffer" class="muted">—</span></div>
+    <div class="row"><span>Reserve floors</span><span class="muted">ETH ≥ 0.0001 · USDC ≥ 5</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Balances</h2>
+    <div class="row"><span>CashClaw ETH</span><span id="cc_eth" class="muted">—</span></div>
+    <div class="row"><span>AgentCash USDC</span><span id="ac_usdc" class="muted">—</span></div>
+    <div class="row"><span>Pinch USDC</span><span id="pin_usdc" class="muted">—</span></div>
+    <div class="row"><span>Total</span><span id="total" class="muted">—</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Wife Rotation</h2>
+    <div class="row"><span>Scheduled tonight</span><span id="rot" class="muted">—</span></div>
+    <div class="row"><span>Order</span><span class="muted">Mo → wife1 → wife2 → wife3 → wife4 → wife5</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Services</h2>
+    <div class="row"><span>DoorDash</span><span id="svc_doordash" class="muted">—</span></div>
+    <div class="row"><span>Lyft</span><span id="svc_lyft" class="muted">—</span></div>
+    <div class="row"><span>Instacart</span><span id="svc_instacart" class="muted">—</span></div>
+    <div class="row"><span>Uber</span><span id="svc_uber" class="muted">—</span></div>
+    <div class="row"><span>Rideshare</span><span id="svc_rideshare" class="muted">—</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Work</h2>
+    <div class="row"><span>Latest batch</span><span id="latest_batch" class="muted">—</span></div>
+    <div class="row"><span>Revenue</span><span id="revenue" class="muted">$0</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Quick actions</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <a href="/tribe-portal/"><button style="background:#1f2937; color:#e6e8f0; border:1px solid #374151; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px;">Wife portal</button></a>
+      <a href="/receipts/" target="_blank"><button style="background:#1f2937; color:#e6e8f0; border:1px solid #374151; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px;">Receipts</button></a>
+      <button onclick="refresh()" style="background:#1f2937; color:#e6e8f0; border:1px solid #374151; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px;">Refresh</button>
+    </div>
+  </section>
+</main>
+<script>
+  function el(id){ return document.getElementById(id) }
+  function text(id, v){ const n=el(id); if(n){n.textContent=v} }
+  async function loadJSON(url){ const r=await fetch(url); if(!r.ok) throw new Error('miss '+url); return r.json() }
+  async function refresh(){
+    try {
+      const state = await loadJSON('/api/tribe/state')
+      const guard = await loadJSON('/api/safeguards')
+      const rot = await loadJSON('/api/rotation/current')
+      const svc = await loadJSON('/api/services')
+      const rev = await loadJSON('/api/revenue')
+
+      text('payout_allowed', String(guard.payout_allowed))
+      text('stage', 'Stage ' + (guard.stage ?? '?'))
+      text('weekly_req', '$' + (guard.weekly_income_required ?? '?'))
+      text('buffer', (guard.buffer_pct*100).toFixed(0)+'%')
+      text('cc_eth', (state.balances?.cashclaw_eth ?? 0) + ' ETH')
+      text('ac_usdc', '$' + (state.balances?.agentcash_usdc ?? 0).toFixed(2))
+      text('pin_usdc', '$' + (state.balances?.pinch_usdc ?? 0).toFixed(2))
+      text('total', '$' + ((guard.weekly_income_required ?? 0)).toFixed(2))
+      text('rot', rot.wife_id ?? '—')
+      ['doordash','lyft','instacart','uber','rideshare'].forEach((k,i)=>{
+        const status = svc?.[k] ?? 'unknown'
+        const el2 = el('svc_' + k)
+        if(el2){ el2.textContent = status; el2.className = (status === 'ok' ? 'ok' : status === 'warn' ? 'warn' : status === 'blocked' ? 'bad' : 'muted') }
+      })
+      text('latest_batch', rev?.latest_batch ?? '—')
+      text('revenue', '$' + (Number(rev?.revenue ?? 0)).toFixed(2))
+    } catch (e) {
+      console.warn('dashboard refresh failed', e)
+    }
+  }
+  refresh()
+  setInterval(refresh, 15000)
+</script>
+</body>
+</html>

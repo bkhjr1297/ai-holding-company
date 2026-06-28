@@ -5,8 +5,97 @@
     "subject_prefix": "[Receipt] Weekly payout",
     "include_ledger": true
   },
+  "services": {
+    "mcp": {
+      "doordash": {
+        "command": "node",
+        "args": ["/root/ai-holding-company/mcps/doordash/dist/index.js"],
+        "transport": "stdio",
+        "status": "ready",
+        "notes": "Strider Labs family; preview-first model"
+      },
+      "lyft": {
+        "command": "node",
+        "args": ["/root/ai-holding-company/mcps/lyft/dist/index.js"],
+        "transport": "stdio",
+        "status": "ready",
+        "notes": "confirm=true required to book"
+      },
+      "uber": {
+        "command": "node",
+        "args": ["/root/ai-holding-company/mcps/uber/dist/index.js"],
+        "transport": "stdio",
+        "status": "ready",
+        "notes": "sandbox OAuth path works without privileged scope"
+      },
+      "instacart": {
+        "command": "node",
+        "args": ["/root/ai-holding-company/mcps/instacart/dist/index.js"],
+        "transport": "stdio",
+        "status": "ready",
+        "notes": "community build; place_order defaults to confirm=false"
+      },
+      "rideshare": {
+        "command": "python3",
+        "args": ["-m", "rideshare_comparison_mcp"],
+        "cwd": "/root/ai-holding-company/mcps/rideshare",
+        "transport": "stdio",
+        "status": "ready",
+        "notes": "comparison-only; returns pricing/deep links"
+      }
+    },
+    "coordination": {
+      "restaurant_voting": {
+        "path": "/root/ai-holding-company/coordination/restaurant",
+        "stack": ["Node.js", "Fastify", "Prisma", "Next.js"],
+        "status": "installed",
+        "run_hint": "docker compose up"
+      },
+      "ride_coordination": {
+        "path": "/root/ai-holding-company/coordination/rides",
+        "stack": ["Ruby on Rails", "PostgreSQL", "Bootstrap 5"],
+        "status": "installed",
+        "run_hint": "docker compose up"
+      },
+      "rotation_scheduler": {
+        "path": "/root/ai-holding-company/coordination/rotation",
+        "stack": ["TypeScript", "tRPC", "Next.js monorepo"],
+        "status": "installed",
+        "run_hint": "yarn install && yarn dev"
+      },
+      "emergency_notifier": {
+        "path": "/root/ai-holding-company/tribe/calc/rotation.py",
+        "module": "tribe.calc.rotation",
+        "status": "ready",
+        "interface": "CLI / import"
+      }
+    },
+    "tribe": {
+      "safeguards": {
+        "command": "python3",
+        "args": ["/root/ai-holding-company/tribe/calc/safeguards.py"],
+        "status": "ready"
+      },
+      "rotation": {
+        "command": "python3",
+        "args": ["/root/ai-holding-company/tribe/calc/rotation.py"],
+        "status": "ready"
+      },
+      "support_engine": {
+        "command": "python3",
+        "args": ["/root/ai-holding-company/tribe/calc/support_engine.py"],
+        "status": "ready"
+      },
+      "payout_and_receipts": {
+        "command": "python3",
+        "args": ["/root/ai-holding-company/ops/payout_and_receipts.py"],
+        "status": "ready"
+      }
+    }
+  },
   "ui_triggers": {
-    "send_all_weekly_transactions": ["publish_receipts"],
-    "update_game_state": ["operator_runtime"]
+    "send_all_weekly_transactions": ["payout_and_receipts"],
+    "update_game_state": ["operator_runtime"],
+    "tribe_weekly_summary": ["weekly_tribe_report"]
   }
 }
