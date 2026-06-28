@@ -2,6 +2,6 @@ node_modules
 .next
 tmp
 .env*
-mcps/*
-coordination/
-!.gitignore
+__pycache__/
+*.pyc
+*.log

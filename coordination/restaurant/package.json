@@ -1,0 +1,71 @@
+{
+  "name": "votedine",
+  "version": "2.0.0",
+  "description": "VoteDine - The smartest way to decide where to eat with friends",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "docker-compose up -d",
+    "dev:local": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:frontend": "cd frontend && npm run test",
+    "test:backend": "cd backend && npm run test",
+    "test:e2e": "cd frontend && npm run test:e2e",
+    "lint": "cd frontend && npm run lint && cd ../backend && npm run lint",
+    "type-check": "cd frontend && npm run type-check && cd ../backend && npm run type-check",
+    "db:migrate": "cd backend && npx prisma migrate dev",
+    "db:studio": "cd backend && npx prisma studio",
+    "clean": "rm -rf frontend/node_modules backend/node_modules frontend/.next backend/dist",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "keywords": [
+    "votedine",
+    "real-time-voting",
+    "group-decision",
+    "food-app",
+    "dining-app",
+    "voting-system",
+    "nextjs",
+    "react",
+    "typescript",
+    "fastify",
+    "socketio",
+    "yelp-api",
+    "restaurant-discovery",
+    "real-time-chat",
+    "websockets",
+    "postgresql",
+    "redis",
+    "docker",
+    "2026-tech",
+    "modern-web",
+    "full-stack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/votedine/votedine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/votedine/votedine/issues"
+  },
+  "homepage": "https://votedine.com",
+  "author": "VoteDine Team",
+  "license": "MIT"
+}
