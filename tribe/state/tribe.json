@@ -219,5 +219,65 @@
         "model": "balanced"
       }
     ]
+  },
+  "non_emergency_line": {
+    "active": true,
+    "default_response": "Thank you. This is Annabelle. Please tell me if this is for: ride, food, clothing, or other. I'll handle it.",
+    "routing_rules": [
+      {
+        "keywords": [
+          "ride",
+          "uber",
+          "lyft",
+          "taxi",
+          "car",
+          "bus",
+          "travel"
+        ],
+        "category": "ride",
+        "handler": "dispatch_ride"
+      },
+      {
+        "keywords": [
+          "food",
+          "hungry",
+          "eat",
+          "groceries",
+          "meal",
+          "doordash"
+        ],
+        "category": "food",
+        "handler": "dispatch_food"
+      },
+      {
+        "keywords": [
+          "clothes",
+          "clothing",
+          "shirt",
+          "pants",
+          "shoes",
+          "jacket"
+        ],
+        "category": "clothing",
+        "handler": "dispatch_clothing"
+      },
+      {
+        "keywords": [
+          "other",
+          "help",
+          "assist",
+          "support",
+          "need"
+        ],
+        "category": "other",
+        "handler": "dispatch_other"
+      }
+    ],
+    "last_request": {
+      "category": "unknown",
+      "sender": "+1-555-000-0005",
+      "handler": "dispatch_unknown",
+      "timestamp": "2026-06-29T00:03:30.968829+00:00"
+    }
   }
 }

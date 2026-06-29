@@ -90,12 +90,25 @@
         "command": "python3",
         "args": ["/root/ai-holding-company/ops/payout_and_receipts.py"],
         "status": "ready"
+      },
+      "health_safeguards": {
+        "command": "python3",
+        "args": ["/root/ai-holding-company/tribe/calc/health_safeguards.py"],
+        "status": "ready"
+      },
+      "non_emergency_line": {
+        "command": "python3",
+        "args": ["/root/ai-holding-company/tribe/calc/non_emergency_line.py"],
+        "status": "ready",
+        "intake_api": "/api/non-emergency/request",
+        "routing": ["ride", "food", "clothing", "other"]
       }
     }
   },
   "ui_triggers": {
     "send_all_weekly_transactions": ["payout_and_receipts"],
     "update_game_state": ["operator_runtime"],
-    "tribe_weekly_summary": ["weekly_tribe_report"]
+    "tribe_weekly_summary": ["weekly_tribe_report"],
+    "health_check": ["health_safeguards"]
   }
 }

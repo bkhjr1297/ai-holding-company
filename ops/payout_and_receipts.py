@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import json, smtplib, textwrap
+
+import json, sys, smtplib, textwrap
 from datetime import datetime, timezone
 from email.message import EmailMessage
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from tribe.calc.safeguards import can_payout, load as load_state
 from tribe.calc.health_safeguards import run as health_check
