@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annabelle — Onboarding</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header h1 {
+      font-size: 1.6rem;
+      margin: 0 0 6px;
+    }
+    .header p {
+      color: #475569;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 12px 0 6px;
+      color: #334155;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #0ea5e9;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 14px;
+      cursor: pointer;
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+    .hint {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 6px;
+    }
+    .status {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .status.ok {
+      background: #ecfdf5;
+      color: #065f46;
+      display: block;
+    }
+    .status.error {
+      background: #fef2f2;
+      color: #991b1b;
+      display: block;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🙋‍♀️ Join the family circle</h1>
+      <p>Text <strong>+1-555-ANN-ABLE</strong> or fill this out to join Annabelle.</p>
+    </div>
+
+    <div class="card">
+      <form id="onboardForm">
+        <label for="relationship">I am a</label>
+        <select id="relationship" name="relationship">
+          <option value="wife">Wife</option>
+          <option value="sister">Sister</option>
+        </select>
+
+        <label for="name">Your first name</label>
+        <input id="name" name="name" type="text" required placeholder="Maria" />
+
+        <label for="phone">Your phone number</label>
+        <input id="phone" name="phone" type="tel" required placeholder="+1-555-000-0001" />
+
+        <label for="trust_wallet">Your Trust Wallet address</label>
+        <input id="trust_wallet" name="trust_wallet" type="text" required placeholder="0x..." />
+        <p class="hint">Used for budgeting and payouts. You control this wallet.</p>
+
+        <label for="code">Invite code (optional)</label>
+        <input id="code" name="code" type="text" placeholder="BRIAN2026" />
+
+        <button type="submit">Join the circle</button>
+        <div id="status" class="status"></div>
+      </form>
+    </div>
+
+    <div class="footer">
+      Managed by Annabelle · Family Care Assistant
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('onboardForm');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      status.className = 'status';
+      status.textContent = 'Saving…';
+
+      const data = {
+        relationship: form.relationship.value,
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        trust_wallet: form.trust_wallet.value.trim(),
+        code: form.code.value.trim() || null,
+      };
+
+      try {
+        const res = await fetch('/api/onboard', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.detail || json.error || 'Failed');
+        status.className = 'status ok';
+        status.textContent = 'You are in! Welcome, ' + data.name + '.';
+        form.reset();
+      } catch (err) {
+        status.className = 'status error';
+        status.textContent = 'Error: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
