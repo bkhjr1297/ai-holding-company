@@ -100,11 +100,23 @@ async def location_nearest(lat: float = 40.7128, lng: float = -74.006) -> JSONRe
 
 @app.post("/api/crisis/assess")
 async def crisis_assess(payload: dict) -> JSONResponse:
-    from tribe.calc.crisis_response import run as crisis_run
-    sender = str(payload.get("sender", "unknown"))
-    message = str(payload.get("message", ""))
     try:
+        from tribe.calc.crisis_response import run as crisis_run
+        sender = str(payload.get("sender", "unknown"))
+        message = str(payload.get("message", ""))
         result = crisis_run(message, sender)
     except Exception as exc:
         return JSONResponse({"status": "error", "error": str(exc)}, status_code=500)
     return JSONResponse({"status": "ok", **result})
+
+
+@app.post("/api/non-emergency/request")
+async def non_emergency_request(payload: dict) -> JSONResponse:
+    try:
+        from tribe.calc.non_emergency_line import run as line_run
+        sender = str(payload.get("sender", "unknown"))
+        message = str(payload.get("message", ""))
+        result = line_run(message=message, sender=sender)
+    except Exception as exc:
+        return JSONResponse({"status": "error", "error": str(exc)}, status_code=500)
+    return JSONResponse(result)
