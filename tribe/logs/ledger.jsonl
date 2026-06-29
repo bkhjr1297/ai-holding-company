@@ -4,3 +4,5 @@
 {"timestamp": "2026-06-28T21:49:05.436528+00:00", "event": "retirement_account_opened", "detail": "{\"member\": \"brian\", \"age\": 34, \"profile\": \"moderate\"}"}
 {"timestamp": "2026-06-28T21:49:05.474530+00:00", "event": "retirement_account_opened", "detail": "{\"member\": \"sister\", \"age\": 30, \"profile\": \"conservative\"}"}
 {"timestamp": "2026-06-28T21:52:05.388149+00:00", "event": "safeguard_check", "detail": "{\"ok\": false, \"reason\": \"ETH below reserve floor: 0.0 < 0.0001\", \"stage\": 0, \"weekly_required\": 2388.0}"}
+{"timestamp": "2026-06-29T00:00:50.770525+00:00", "event": "safeguard_check", "detail": "{\"ok\": false, \"reason\": \"ETH below reserve floor: 0.0 < 0.0001\", \"stage\": 0, \"weekly_required\": 2388.0}"}
+{"timestamp": "2026-06-29T00:00:51.001365+00:00", "event": "safeguard_check", "detail": "{\"ok\": false, \"reason\": \"ETH below reserve floor: 0.0 < 0.0001\", \"stage\": 0, \"weekly_required\": 2388.0}"}

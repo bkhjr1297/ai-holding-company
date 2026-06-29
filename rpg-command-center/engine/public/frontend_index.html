@@ -302,6 +302,11 @@ function walls(b){
 }
 
 (async function init(){
+  const setLoading = (msg)=>{
+    const el = $('loading');
+    if (!el) return;
+    el.innerHTML = msg || 'Loading Agent Farm…<br><span style="opacity:.7;font-size:12px">Fetching farm state…</span>';
+  };
   try{
     const [stateObj]=await Promise.all([api('/api/state')]);
     Object.assign(state,stateObj);
@@ -309,7 +314,7 @@ function walls(b){
     for(const [id,b] of Object.entries(state.buildings||{})){dialogForBuilding(id,b);}
     $('loading').style.display='none';
   }catch(e){
-    $('loading').textContent='Backend unreachable: '+e.message;
+    setLoading('Backend unreachable: ' + e.message);
     return;
   }
   const place=(m,mx,my)=>{m.forEach(o=>{o.x=o.x+(mx||0);o.y=o.y+(my||0);})};
@@ -360,10 +365,21 @@ function walls(b){
   resize();
   window.addEventListener('resize',resize);
 
+  function dialogInputFocused(){
+    const el = document.activeElement;
+    if (!el) return false;
+    const tag = (el.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return true;
+    return el.isContentEditable;
+  }
   window.addEventListener('keydown',e=>{
-    state.keys[e.key.toLowerCase()]=true;
-    if(occupiedEntity&&['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase())){
-      closeDialog();
+    const k = e.key.toLowerCase();
+    state.keys[k]=true;
+    if (occupiedEntity) {
+      if (dialogInputFocused()) return;
+      if (['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright',' '].includes(k)) {
+        closeDialog();
+      }
     }
   });
   window.addEventListener('keyup',e=>{state.keys[e.key.toLowerCase()]=false});

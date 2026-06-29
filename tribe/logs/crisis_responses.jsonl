@@ -1,0 +1,1 @@
+{"timestamp": "2026-06-29T00:00:51.111986+00:00", "event": "crisis_routine", "sender": "system", "message": "check only", "assessment": {"severity": "low", "recommended_action": "annabelle_handle", "reason": "no crisis indicators", "councils": [{"name": "triage-1", "verdict": "low"}, {"name": "triage-2", "verdict": "low"}]}}

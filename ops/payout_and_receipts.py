@@ -6,6 +6,7 @@ from email.message import EmailMessage
 from pathlib import Path
 
 from tribe.calc.safeguards import can_payout, load as load_state
+from tribe.calc.health_safeguards import run as health_check
 from tribe.calc.support_engine import build_schedule
 from scripts.send_email_receipt import send_receipt, record_event
 
@@ -64,12 +65,22 @@ def email_receipt(entry: dict) -> None:
 
 def run_payout() -> dict:
     state = load_state()
+    health = health_check()
+    if health.get("strict_mode"):
+        return {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "payout_allowed": False,
+            "block_reason": "health strict mode active: diabetes or mental health risk elevated",
+            "stage": state.get("stage"),
+            "health": health,
+        }
     ok, reason = can_payout(state)
     result = {
-        'timestamp': datetime.now(timezone.utc).isoformat(),
-        'payout_allowed': bool(ok),
-        'block_reason': reason if not ok else None,
-        'stage': state.get('stage'),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "payout_allowed": bool(ok),
+        "block_reason": reason if not ok else None,
+        "stage": state.get("stage"),
+        "health": health,
     }
     if not ok:
         return result
@@ -93,7 +104,7 @@ def run_payout() -> dict:
         email_receipt(entry)
         result['receipt_sent'] = True
         result['email_to'] = RECIPIENT
-    except Exception as exc:  # pragma: no cover - defensive email handling
+    except Exception as exc:
         result['receipt_sent'] = False
         result['receipt_error'] = str(exc)[:300]
     return result

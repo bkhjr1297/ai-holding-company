@@ -75,3 +75,36 @@ async def wife_portal() -> HTMLResponse:
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon() -> FileResponse:
     return FileResponse(Path(__file__).resolve().parent / "favicon.ico", media_type="image/x-icon")
+
+
+@app.post("/api/location/update")
+async def location_update(payload: dict) -> JSONResponse:
+    try:
+        member_id = str(payload.get("member_id", "brian"))
+        lat = float(payload.get("lat", 0))
+        lng = float(payload.get("lng", 0))
+        address = str(payload.get("address", ""))
+    except Exception as exc:
+        return JSONResponse({"status": "error", "error": str(exc)}, status_code=400)
+    from tribe.calc.location_router import update_location
+    result = update_location(member_id, lat, lng, address)
+    return JSONResponse({"status": "ok", "location": result})
+
+
+@app.get("/api/location/nearest")
+async def location_nearest(lat: float = 40.7128, lng: float = -74.006) -> JSONResponse:
+    from tribe.calc.location_router import run_nearest
+    result = run_nearest(lat, lng)
+    return JSONResponse(result)
+
+
+@app.post("/api/crisis/assess")
+async def crisis_assess(payload: dict) -> JSONResponse:
+    from tribe.calc.crisis_response import run as crisis_run
+    sender = str(payload.get("sender", "unknown"))
+    message = str(payload.get("message", ""))
+    try:
+        result = crisis_run(message, sender)
+    except Exception as exc:
+        return JSONResponse({"status": "error", "error": str(exc)}, status_code=500)
+    return JSONResponse({"status": "ok", **result})

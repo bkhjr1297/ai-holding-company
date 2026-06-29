@@ -103,11 +103,121 @@
     "Emotional Request System",
     "Leadership Responsibility"
   ],
-  "last_check": "2026-06-28T21:52:05.387711+00:00",
+  "last_check": "2026-06-29T00:00:51.000907+00:00",
   "payout_allowed": false,
   "payout_block_reason": "ETH below reserve floor: 0.0 < 0.0001",
   "members_ages": {
     "brian": 34,
     "sister": 30
+  },
+  "locations": {
+    "brian": {
+      "label": "Brian",
+      "lat": 40.7128,
+      "lng": -74.006,
+      "address": "NYC default",
+      "role": "self",
+      "updated_at": "2026-06-28T23:56:44.659702+00:00"
+    },
+    "sister": {
+      "label": "Sister",
+      "lat": null,
+      "lng": null,
+      "address": "",
+      "role": "sister"
+    },
+    "wife1": {
+      "label": "Wife 1",
+      "lat": null,
+      "lng": null,
+      "address": "",
+      "role": "wife"
+    },
+    "wife2": {
+      "label": "Wife 2",
+      "lat": null,
+      "lng": null,
+      "address": "",
+      "role": "wife"
+    },
+    "wife3": {
+      "label": "Wife 3",
+      "lat": null,
+      "lng": null,
+      "address": "",
+      "role": "wife"
+    },
+    "wife4": {
+      "label": "Wife 4",
+      "lat": null,
+      "lng": null,
+      "address": "",
+      "role": "wife"
+    },
+    "wife5": {
+      "label": "Wife 5",
+      "lat": null,
+      "lng": null,
+      "address": "",
+      "role": "wife"
+    }
+  },
+  "health": {
+    "medication_adherence_pct": 100.0,
+    "glucose_check_required_daily": true,
+    "a1c_target": 7.0,
+    "fitness_min_weekly_steps": 0,
+    "fitness_min_weekly_active_min": 0,
+    "mental_health": {
+      "therapy_sessions_required_monthly": 0,
+      "crisis_plan_required": false,
+      "symptom_log_required_daily": false
+    },
+    "allowances": {
+      "extra_food_budget_if_sedentary": false,
+      "budget_override_requires_daily_activity_log": true
+    },
+    "flags": {
+      "high_risk_diabetes": false,
+      "high_risk_mental_health": false,
+      "emergency_contacts": []
+    }
+  },
+  "crisis": {
+    "active": false,
+    "last_triggered_at": "2026-06-29T00:00:51.111905+00:00",
+    "last_assessment": {
+      "severity": "low",
+      "recommended_action": "annabelle_handle",
+      "reason": "no crisis indicators",
+      "councils": [
+        {
+          "name": "triage-1",
+          "verdict": "low"
+        },
+        {
+          "name": "triage-2",
+          "verdict": "low"
+        }
+      ]
+    },
+    "last_outcome": "annabelle_handled",
+    "contacts": [],
+    "location": {
+      "address": "",
+      "lat": null,
+      "lng": null,
+      "notes": ""
+    },
+    "councils": [
+      {
+        "name": "triage-1",
+        "model": "fast"
+      },
+      {
+        "name": "triage-2",
+        "model": "balanced"
+      }
+    ]
   }
 }
